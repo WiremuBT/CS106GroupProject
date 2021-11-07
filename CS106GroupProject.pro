@@ -13,6 +13,9 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    FAQ.h \
+    Profiles.h \
+    Tickets.h \
     mainwindow.h
 
 FORMS += \
@@ -22,3 +25,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resource.qrc
