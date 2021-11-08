@@ -66,6 +66,7 @@ public:
 class Agent : public profile {
 public:
     int Agent_id;
+    char Category;
     int Closed_count, Open_count, Stats_fact;
 
 

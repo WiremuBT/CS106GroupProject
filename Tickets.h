@@ -10,7 +10,7 @@ class Ticket {
    QString Name;
    QString Email;
    QString Phone;
-   QString Category;
+   char Category;
    QString Tags[5];
    char Impact, Priority;
    int Urgency;

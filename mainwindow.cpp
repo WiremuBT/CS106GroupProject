@@ -31,7 +31,6 @@ MainWindow::~MainWindow()
 
 
 
-
 void MainWindow::on_pushButton_2_clicked()
 {
 
@@ -102,5 +101,12 @@ void MainWindow::on_pushButton_6_clicked()
 void MainWindow::on_pushButton_13_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(0);
+
+
+
+
+
+
+
 }
 
