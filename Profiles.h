@@ -64,11 +64,8 @@ public:
 class Agent : public profile {
 public:
     int Agent_id;
-<<<<<<< HEAD
-    char Category;
-=======
+    char category;
     QString userid, uname, password, fname, lname, email, phnum, cat;
->>>>>>> d2c11bbff743f37c425eda71a568e64b850c6755
     int Closed_count, Open_count, Stats_fact;
 
 
