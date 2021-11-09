@@ -142,7 +142,7 @@ void MainWindow::on_pushButton_17_clicked()
 
 void MainWindow::on_pushButton_18_clicked()
 {
-    QFile agentFile("C:/Users/GGPC/Documents/build-CS106GroupProject-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/agents.txt");
+    QFile agentFile("agents.txt");
     if(!agentFile.open(QFile::ReadOnly | QFile::Text))
     {
         QMessageBox::warning(this, "File", "File is not open!");
@@ -192,7 +192,7 @@ void MainWindow::on_pushButton_20_clicked()
     QString msg;
 
     //  File code starts
-    QFile agentFile("C:/Users/GGPC/Documents/build-CS106GroupProject-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/agents.txt");
+    QFile agentFile("agents.txt");
     agentFile.open(QFile::ReadOnly | QFile::Text);
     QTextStream in(&agentFile);
     //  File code ends
