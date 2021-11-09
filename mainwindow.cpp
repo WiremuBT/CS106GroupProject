@@ -140,8 +140,8 @@ void MainWindow::on_pushButton_17_clicked()
     QTextStream out(&agentFile);
     //  File code ends
 
-    out << "User ID: " << Agent.userid << Qt::endl << "Username: " << Agent.uname << Qt::endl << "Password: " << Agent.password << Qt::endl << "First Name: " << Agent.fname
-        << Qt::endl << "Last Name: " << Agent.lname << Qt::endl << "Email: " << Agent.email << Qt::endl << "Phone: " << Agent.phnum << Qt::endl << "Category: " << Agent.cat << ('\n') << ('\n');
+    out << Agent.userid << (',') << Agent.uname << (',') << Agent.password << (',') << Agent.fname
+        << (',') << Agent.lname << (',') << Agent.email << (',') << Agent.phnum << (',') << Agent.cat;
 
 }
 
