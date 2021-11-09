@@ -193,6 +193,27 @@ void MainWindow::on_pushButton_20_clicked()
     QString msg;
 
     //  File code starts
-    QFile agentFile("C:/Users/GGPC/Documents/build-CS106GroupProject-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/agents.txt")
+    QFile agentFile("C:/Users/GGPC/Documents/build-CS106GroupProject-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/agents.txt");
+    agentFile.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in(&agentFile);
+    //  File code ends
+
+    while(!in.atEnd())
+    {
+        QString line = in.readAll();
+
+        if(Agent.uname==line && Agent.password==line)
+        {
+            msg = "You have successfully logged in";
+            ui->stackedWidget->setCurrentIndex(5);
+        }
+        else
+        {
+            msg = "Wrong username or password";
+        }
+    }
+
+    QMessageBox::information(this,"Login",msg);
+
 }
 
