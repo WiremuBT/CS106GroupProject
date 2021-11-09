@@ -46,13 +46,11 @@ public:
 
 
     }
-
     void LoginValidation() {
 
 
     }
     void createAdmin() {
-
 
 
     }
@@ -66,6 +64,7 @@ public:
 class Agent : public profile {
 public:
     int Agent_id;
+    QString userid, uname, password, fname, lname, email, phnum, cat;
     int Closed_count, Open_count, Stats_fact;
 
 
@@ -81,13 +80,11 @@ public:
 
 
     }
-
     void LoginValidation() {
 
 
     }
     void createAgent() {
-
 
 
     }
@@ -98,23 +95,12 @@ public:
     void DeleteAgent() {
 
 
-
     }
 
 
 
 
 };
-
-
-
-
-
-
-
-
-
-
 
 #endif // PROFILES_H
 
