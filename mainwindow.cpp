@@ -87,30 +87,68 @@ void MainWindow::on_pushButton_6_clicked()
 {
     {
         Ticket TestTicket;
-        TestTicket.Name = ui->lineEdit_3->text();
+        TestTicket.fName = ui->lineEdit_3->text();
+        TestTicket.lName = ui->lineEdit_8->text();
         TestTicket.Email = ui->lineEdit_4->text();
         TestTicket.Phone = ui->lineEdit_5->text();
-        ui->stackedWidget->setCurrentIndex(4);
+        TestTicket.Description = ui->textEdit->toPlainText();
 
-        qDebug() << TestTicket.Name;
+        if(ui->comboBox->currentIndex() == 0) {
+
+            TestTicket.response = 'E';
+        } else {
+            TestTicket.response = 'P';
+        }
+
+
+        if(ui->comboBox_4->currentIndex() == 0) {
+
+            TestTicket.Category = 'G';
+
+        } else if (ui->comboBox_4->currentIndex() == 1) {
+
+            TestTicket.Category = 'P';
+
+        } else if (ui->comboBox_4->currentIndex() == 2) {
+
+            TestTicket.Category = 'B';
+        } else if (ui->comboBox_4->currentIndex() == 3) {
+
+            TestTicket.Category = 'S';
+        }
+
+
+
+
+
+
+        ui->stackedWidget->setCurrentIndex(5);
+
+        qDebug() << TestTicket.fName;
+        qDebug() << TestTicket.lName;
         qDebug() << TestTicket.Email;
         qDebug() << TestTicket.Phone;
+        qDebug() << TestTicket.Description;
+        qDebug() << TestTicket.response;
+        qDebug() << TestTicket.Category;
+
+
+        //  File code starts
+        QFile agentFile("Tickets.txt");
+        agentFile.open(QIODevice::Append | QIODevice::Text);
+        QTextStream out(&agentFile);
+        //  File code ends
+
+        out << TestTicket.fName << (',') << TestTicket.lName << (',') << TestTicket.Email << (',') << TestTicket.Email
+            << (',') << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << Qt::endl;
+     //Needs QMessagebox for successfull creation and failure.
+
     }
 
 }
 
 
-void MainWindow::on_pushButton_13_clicked()
-{
-    ui->stackedWidget_2->setCurrentIndex(0);
 
-
-
-
-
-
-
-}
 
 
 void MainWindow::on_pushButton_16_clicked()
@@ -133,6 +171,15 @@ void MainWindow::on_pushButton_17_clicked()
     Agent.phnum = ui->lineEdit_phnum->text();
     Agent.cat = ui->lineEdit_cat->text();
 
+     ui->lineEdit_userid->clear();
+     ui->lineEdit_uname->clear();
+     ui->lineEdit_password->clear();
+     ui->lineEdit_fname->clear();
+     ui->lineEdit_lname->clear();
+     ui->lineEdit_email->clear();
+     ui->lineEdit_phnum->clear();
+     ui->lineEdit_cat->clear();
+
 
     //  File code starts
     QFile agentFile("agents.txt");
@@ -141,7 +188,8 @@ void MainWindow::on_pushButton_17_clicked()
     //  File code ends
 
     out << Agent.userid << (',') << Agent.uname << (',') << Agent.password << (',') << Agent.fname
-        << (',') << Agent.lname << (',') << Agent.email << (',') << Agent.phnum << (',') << Agent.cat;
+        << (',') << Agent.lname << (',') << Agent.email << (',') << Agent.phnum << (',') << Agent.cat << Qt::endl;
+ //Needs QMessagebox for successfull creation and failure.
 
 }
 
@@ -205,7 +253,7 @@ void MainWindow::on_pushButton_20_clicked()
 
     while(!in.atEnd())
     {
-        QTextStream in(&agentFile);
+        // QTextStream in(&agentFile);
         QString rdata = in.readAll();
 
         if(Agent.uname==rdata && Agent.password==rdata)
@@ -222,4 +270,11 @@ void MainWindow::on_pushButton_20_clicked()
     QMessageBox::information(this,"Login",msg);
 
 }
+
+
+
+
+
+
+
 

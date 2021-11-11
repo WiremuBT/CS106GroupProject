@@ -7,10 +7,10 @@
 class Ticket {
    public:
    int Ticket_id;
-   QString Name;
+   QString fName, lName;
    QString Email;
    QString Phone;
-   char Category;
+   char Category,response;
    QString Tags[5];
    char Impact, Priority;
    int Urgency;
