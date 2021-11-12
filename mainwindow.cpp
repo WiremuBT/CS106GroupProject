@@ -154,7 +154,7 @@ void MainWindow::on_pushButton_6_clicked()
 
 void MainWindow::on_pushButton_16_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 
@@ -190,9 +190,52 @@ void MainWindow::on_pushButton_17_clicked()
       out << Agent.userid << (',') << Agent.fname << (',') << Agent.lname << (',') << Agent.uname
         << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',') << ui->comboBox_2->currentText() << Qt::endl;
 
+      agentFile.close();
+
+      if()
+    {
+          QMessageBox::information(this, "Agent Creation", "Username already in use!");
+
+    }
+    else
+    {
+          QMessageBox::information(this, "Agent Creation", "Agent Created Successfully!");
+    }
 
 }
 
+void MainWindow::on_pushButton_20_clicked()
+{
+    Agent Agent;
+
+    Agent.uname = ui->lineEdit_6->text();
+    Agent.password = ui->lineEdit_7->text();
+    QString msg;
+
+    //  File code starts
+    QFile agentFile("agents.txt");
+    agentFile.open(QFile::ReadOnly | QFile::Text);
+    QTextStream in(&agentFile);
+    //  File code ends
+
+    while(!in.atEnd())
+    {
+        QString line = in.readLine();
+        QStringList data = line.split(",");
+
+        if(Agent.uname==data.at(3) && Agent.password==data.at(4))
+        {
+            msg = "You have successfully logged in";
+            ui->stackedWidget->setCurrentIndex(5);
+            agentFile.close();
+        }
+        else
+        {
+            msg = "Invalid username or password";
+        }
+    }
+
+}
 
 void MainWindow::on_pushButton_18_clicked()
 {
@@ -206,6 +249,7 @@ void MainWindow::on_pushButton_18_clicked()
     ui->plainTextEdit->setPlainText(rdata);
     agentFile.close();
 }
+
 
 
 //void MainWindow::on_pushButton_19_clicked()
@@ -237,38 +281,7 @@ void MainWindow::on_pushButton_21_clicked()
 }
 
 
-void MainWindow::on_pushButton_20_clicked()
-{
-    Agent Agent;
 
-    Agent.uname = ui->lineEdit_6->text();
-    Agent.password = ui->lineEdit_7->text();
-    QString msg;
-
-    //  File code starts
-    QFile agentFile("agents.txt");
-    agentFile.open(QFile::ReadOnly | QFile::Text);
-    QTextStream in(&agentFile);
-    //  File code ends
-
-    while(!in.atEnd())
-    {
-        QString line = in.readLine();
-        QStringList data = line.split(",");
-
-        if(Agent.uname==data.at(3) && Agent.password==data.at(4))
-        {
-            msg = "You have successfully logged in";
-            ui->stackedWidget->setCurrentIndex(5);
-            agentFile.close();
-        }
-        else
-        {
-            msg = "Wrong username or password";
-        }
-    }
-
-}
 
 
 
