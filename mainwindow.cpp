@@ -143,6 +143,7 @@ void MainWindow::on_pushButton_6_clicked()
             << (',') << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << Qt::endl;
      //Needs QMessagebox for successfull creation and failure.
 
+
     }
 
 }
@@ -169,7 +170,7 @@ void MainWindow::on_pushButton_17_clicked()
     Agent.lname = ui->lineEdit_lname->text();
     Agent.email = ui->lineEdit_email->text();
     Agent.phnum = ui->lineEdit_phnum->text();
-    Agent.cat = ui->lineEdit_cat->text();
+    ui->comboBox_2->currentText();
 
      ui->lineEdit_userid->clear();
      ui->lineEdit_uname->clear();
@@ -178,7 +179,6 @@ void MainWindow::on_pushButton_17_clicked()
      ui->lineEdit_lname->clear();
      ui->lineEdit_email->clear();
      ui->lineEdit_phnum->clear();
-     ui->lineEdit_cat->clear();
 
 
     //  File code starts
@@ -187,9 +187,9 @@ void MainWindow::on_pushButton_17_clicked()
     QTextStream out(&agentFile);
     //  File code ends
 
-    out << Agent.userid << (',') << Agent.uname << (',') << Agent.password << (',') << Agent.fname
-        << (',') << Agent.lname << (',') << Agent.email << (',') << Agent.phnum << (',') << Agent.cat << Qt::endl;
- //Needs QMessagebox for successfull creation and failure.
+      out << Agent.userid << (',') << Agent.fname << (',') << Agent.lname << (',') << Agent.uname
+        << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',') << ui->comboBox_2->currentText() << Qt::endl;
+
 
 }
 
@@ -253,10 +253,10 @@ void MainWindow::on_pushButton_20_clicked()
 
     while(!in.atEnd())
     {
-        // QTextStream in(&agentFile);
-        QString rdata = in.readAll();
+        QString line = in.readLine();
+        QStringList data = line.split(",");
 
-        if(Agent.uname==rdata && Agent.password==rdata)
+        if(Agent.uname==data.at(3) && Agent.password==data.at(4))
         {
             msg = "You have successfully logged in";
             ui->stackedWidget->setCurrentIndex(5);
@@ -267,7 +267,6 @@ void MainWindow::on_pushButton_20_clicked()
             msg = "Wrong username or password";
         }
     }
-    QMessageBox::information(this,"Login",msg);
 
 }
 

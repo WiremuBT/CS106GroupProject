@@ -17,8 +17,8 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
        <number>3</number>
@@ -168,7 +168,7 @@
          <string>Agree to our privacy terms and conditions</string>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -194,7 +194,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -449,7 +449,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -489,7 +489,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -597,15 +597,15 @@
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>140</x>
-          <y>40</y>
-          <width>131</width>
-          <height>21</height>
+          <x>250</x>
+          <y>20</y>
+          <width>171</width>
+          <height>41</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>13</pointsize>
+          <pointsize>19</pointsize>
          </font>
         </property>
         <property name="text">
@@ -615,11 +615,16 @@
        <widget class="QPushButton" name="pushButton_17">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>320</y>
-          <width>75</width>
-          <height>23</height>
+          <x>110</x>
+          <y>560</y>
+          <width>121</width>
+          <height>31</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Create</string>
@@ -628,97 +633,180 @@
        <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>70</y>
-          <width>231</width>
-          <height>237</height>
+          <x>90</x>
+          <y>80</y>
+          <width>511</width>
+          <height>451</height>
          </rect>
         </property>
         <property name="title">
          <string/>
         </property>
-        <layout class="QGridLayout" name="gridLayout_3">
+        <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_userid">
-             <property name="text">
-              <string>User ID</string>
-             </property>
-            </widget>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="lineEdit_password"/>
            </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_userid"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_fname">
-             <property name="text">
-              <string>First Name</string>
-             </property>
-            </widget>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="lineEdit_email"/>
            </item>
            <item row="1" column="1">
             <widget class="QLineEdit" name="lineEdit_fname"/>
            </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_lname">
+           <item row="7" column="1">
+            <widget class="QComboBox" name="comboBox_2">
+             <item>
+              <property name="text">
+               <string>General Issues</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bugs</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Technical Issues</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Performance</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_email">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
-              <string>Last Name</string>
+              <string>Email</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
             <widget class="QLineEdit" name="lineEdit_lname"/>
            </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_uname">
-             <property name="text">
-              <string>Username</string>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="1">
             <widget class="QLineEdit" name="lineEdit_uname"/>
            </item>
+           <item row="6" column="1">
+            <widget class="QLineEdit" name="lineEdit_phnum">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_userid">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>User ID</string>
+             </property>
+            </widget>
+           </item>
            <item row="4" column="0">
             <widget class="QLabel" name="label_password">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>Password</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
-            <widget class="QLineEdit" name="lineEdit_password"/>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_email">
-             <property name="text">
-              <string>Email</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="lineEdit_email"/>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_phnum">
-             <property name="text">
-              <string>Phone Number</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QLineEdit" name="lineEdit_phnum"/>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_userid"/>
            </item>
            <item row="7" column="0">
             <widget class="QLabel" name="label_cat">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>Category</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
-            <widget class="QLineEdit" name="lineEdit_cat"/>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_fname">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>First Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_phnum">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Phone Number</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_lname">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Last Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_uname">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Username</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -727,8 +815,8 @@
        <widget class="QPushButton" name="pushButton_18">
         <property name="geometry">
          <rect>
-          <x>400</x>
-          <y>320</y>
+          <x>990</x>
+          <y>260</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -740,8 +828,8 @@
        <widget class="QPlainTextEdit" name="plainTextEdit">
         <property name="geometry">
          <rect>
-          <x>390</x>
-          <y>90</y>
+          <x>980</x>
+          <y>40</y>
           <width>251</width>
           <height>211</height>
          </rect>
@@ -750,8 +838,8 @@
        <widget class="QPlainTextEdit" name="plainTextEdit_2">
         <property name="geometry">
          <rect>
-          <x>680</x>
-          <y>90</y>
+          <x>1010</x>
+          <y>390</y>
           <width>241</width>
           <height>211</height>
          </rect>
@@ -760,8 +848,8 @@
        <widget class="QPushButton" name="pushButton_19">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>320</y>
+          <x>1010</x>
+          <y>620</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -773,8 +861,8 @@
        <widget class="QPushButton" name="pushButton_20">
         <property name="geometry">
          <rect>
-          <x>360</x>
-          <y>540</y>
+          <x>1110</x>
+          <y>330</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -786,8 +874,8 @@
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>480</y>
+          <x>900</x>
+          <y>320</y>
           <width>189</width>
           <height>48</height>
          </rect>
