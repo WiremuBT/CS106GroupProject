@@ -666,14 +666,14 @@
        <widget class="QPushButton" name="pushButton_19">
         <property name="geometry">
          <rect>
-          <x>1010</x>
+          <x>980</x>
           <y>330</y>
           <width>75</width>
           <height>23</height>
          </rect>
         </property>
         <property name="text">
-         <string>Adjust</string>
+         <string>Read</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_20">
@@ -720,6 +720,19 @@
           <widget class="QLineEdit" name="lineEdit_6"/>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="pushButton_13">
+        <property name="geometry">
+         <rect>
+          <x>1130</x>
+          <y>330</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Write</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_userid">
         <property name="geometry">
