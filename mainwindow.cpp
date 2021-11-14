@@ -161,7 +161,7 @@ void MainWindow::on_pushButton_16_clicked()
 
 
 void MainWindow::on_pushButton_17_clicked()
-{
+{    
     Agent Agent;
     Agent.userid = ui->lineEdit_userid->text();
     Agent.uname = ui->lineEdit_uname->text();
@@ -190,17 +190,8 @@ void MainWindow::on_pushButton_17_clicked()
       out << Agent.userid << (',') << Agent.fname << (',') << Agent.lname << (',') << Agent.uname
         << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',') << ui->comboBox_2->currentText() << Qt::endl;
 
-      agentFile.close();
 
-      if()
-    {
-          QMessageBox::information(this, "Agent Creation", "Username already in use!");
-
-    }
-    else
-    {
-          QMessageBox::information(this, "Agent Creation", "Agent Created Successfully!");
-    }
+      QMessageBox::information(this, "Agent Creation", "New Agent Created");
 
 }
 
