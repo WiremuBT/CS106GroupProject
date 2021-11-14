@@ -164,19 +164,19 @@ void MainWindow::on_pushButton_17_clicked()
 {    
     Agent Agent;
     Agent.userid = ui->lineEdit_userid->text();
-    Agent.uname = ui->lineEdit_uname->text();
-    Agent.password = ui->lineEdit_password->text();
-    Agent.fname = ui->lineEdit_fname->text();
-    Agent.lname = ui->lineEdit_lname->text();
+    Agent.uname = ui->lineEdit_fname->text();
+    Agent.password = ui->lineEdit_lname->text();
+    Agent.fname = ui->lineEdit_uname->text();
+    Agent.lname = ui->lineEdit_password->text();
     Agent.email = ui->lineEdit_email->text();
     Agent.phnum = ui->lineEdit_phnum->text();
     ui->comboBox_2->currentText();
 
      ui->lineEdit_userid->clear();
-     ui->lineEdit_uname->clear();
-     ui->lineEdit_password->clear();
      ui->lineEdit_fname->clear();
      ui->lineEdit_lname->clear();
+     ui->lineEdit_uname->clear();
+     ui->lineEdit_password->clear();
      ui->lineEdit_email->clear();
      ui->lineEdit_phnum->clear();
 
@@ -233,7 +233,7 @@ void MainWindow::on_pushButton_18_clicked()
     QFile agentFile("agents.txt");
     if(!agentFile.open(QFile::ReadOnly | QFile::Text))
     {
-        QMessageBox::warning(this, "File", "File is not open!");
+        QMessageBox::warning(this, "Agents File", "File is not open!");
     }
     QTextStream in(&agentFile);
     QString rdata= in.readAll();
