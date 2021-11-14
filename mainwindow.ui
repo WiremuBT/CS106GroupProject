@@ -760,6 +760,11 @@
         </property>
         <item>
          <property name="text">
+          <string>Agents Ticketing Category:</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>General Issue</string>
          </property>
         </item>
@@ -846,6 +851,9 @@
          <font>
           <pointsize>10</pointsize>
          </font>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
         </property>
         <property name="placeholderText">
          <string>Email</string>
