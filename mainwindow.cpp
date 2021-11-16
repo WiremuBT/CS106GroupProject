@@ -201,13 +201,11 @@ void MainWindow::on_pushButton_6_clicked()
 
 
 
-<<<<<<< HEAD
-=======
 
     }
->>>>>>> 170576db26670bd7fd27ea10e6a3ca602458e8a7
 
-}
+
+
 
 
 
