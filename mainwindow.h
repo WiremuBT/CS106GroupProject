@@ -8,6 +8,10 @@
 #include <vector>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
+#include <algorithm>
+
+
 #include "ui_mainwindow.h"
 #include "Profiles.h"
 #include "Tickets.h"
@@ -58,6 +62,14 @@ private slots:
 
     void on_pushButton_20_clicked();
 
+
+    void on_pushButton_24_clicked();
+
+
+
+
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

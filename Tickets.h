@@ -10,13 +10,14 @@ class Ticket {
    QString fName, lName;
    QString Email;
    QString Phone;
-   char Category,response;
+   QString Category,response;
    QString Tags[5];
    char Impact, Priority;
    int Urgency;
-   int Time_Stamp[3];
+   QString Time_Stamp;
+
    QString Description;
-   int Support_Level;
+   QString Support_Level;
 
    void CreateTicket() {
 

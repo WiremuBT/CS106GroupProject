@@ -10,6 +10,9 @@
 #include <QFile>
 #include <QString>
 #include <QTextStream>
+#include <vector>
+#include <stdlib.h>
+#include <QDateTime>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -84,46 +87,53 @@ void MainWindow::on_pushButton_12_clicked()
 
 
 void MainWindow::on_pushButton_6_clicked()
-{
     {
+
+        QDateTime date = QDateTime::currentDateTime();
+        QString formatTime = date.toString("dd.MM.yyyy hh:mm:ss");
+
+
         Ticket TestTicket;
         TestTicket.fName = ui->lineEdit_3->text();
         TestTicket.lName = ui->lineEdit_8->text();
         TestTicket.Email = ui->lineEdit_4->text();
         TestTicket.Phone = ui->lineEdit_5->text();
         TestTicket.Description = ui->textEdit->toPlainText();
+        TestTicket.Description.remove(',');
+        TestTicket.Time_Stamp = formatTime;
+        TestTicket.Support_Level = "O";
+
+
+
+
+
 
         if(ui->comboBox->currentIndex() == 0) {
 
-            TestTicket.response = 'E';
+            TestTicket.response = "E";
         } else {
-            TestTicket.response = 'P';
+            TestTicket.response = "P";
         }
 
 
         if(ui->comboBox_4->currentIndex() == 0) {
 
-            TestTicket.Category = 'G';
+            TestTicket.Category = "G";
 
         } else if (ui->comboBox_4->currentIndex() == 1) {
 
-            TestTicket.Category = 'P';
+            TestTicket.Category = "P";
 
         } else if (ui->comboBox_4->currentIndex() == 2) {
 
-            TestTicket.Category = 'B';
+            TestTicket.Category = "B";
         } else if (ui->comboBox_4->currentIndex() == 3) {
 
-            TestTicket.Category = 'S';
+            TestTicket.Category = "S";
         }
 
-
-
-
-
-
         ui->stackedWidget->setCurrentIndex(5);
-
+    /*
         qDebug() << TestTicket.fName;
         qDebug() << TestTicket.lName;
         qDebug() << TestTicket.Email;
@@ -131,7 +141,7 @@ void MainWindow::on_pushButton_6_clicked()
         qDebug() << TestTicket.Description;
         qDebug() << TestTicket.response;
         qDebug() << TestTicket.Category;
-
+*/
 
         //  File code starts
         QFile agentFile("Tickets.txt");
@@ -139,11 +149,58 @@ void MainWindow::on_pushButton_6_clicked()
         QTextStream out(&agentFile);
         //  File code ends
 
-        out << TestTicket.fName << (',') << TestTicket.lName << (',') << TestTicket.Email << (',') << TestTicket.Email
-            << (',') << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << Qt::endl;
-     //Needs QMessagebox for successfull creation and failure.
+        out << TestTicket.fName << (',') << TestTicket.lName << (',') << TestTicket.Email << (',')
+             << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << (',')
+             << TestTicket.Time_Stamp << (',') << TestTicket.Support_Level << Qt::endl;
 
-    }
+        //Needs QMessagebox for successfull creation and failure.
+
+        //~~~~~~File code starts~~~~~~~~~~~~
+         QFile userFile("Tickets.txt");
+         userFile.open(QIODevice::ReadOnly | QIODevice::Text);
+         QTextStream in(&userFile);
+         //~~~~~~File code ends~~~~~~~~~~~~
+        QVector<Ticket> TicketV;
+         while(!in.atEnd())
+         {
+             QString line = in.readLine();
+             QStringList data= line.split(",");
+           Ticket Temp;
+
+            Temp.fName = data.at(0);
+            Temp.lName = data.at(1);
+            Temp.Email = data.at(2);
+            Temp.Phone = data.at(3);
+            Temp.Description = data.at(4);
+            Temp.response = data.at(5);
+            Temp.Category = data.at(6);
+            Temp.Time_Stamp = data.at(7);
+            Temp.Support_Level = data.at(8);
+
+            TicketV.push_back(Temp);
+
+
+
+
+          }
+
+         qDebug() << TicketV[0].fName;
+         qDebug() << TicketV[0].lName;
+         qDebug() << TicketV[0].Email;
+         qDebug() << TicketV[0].Phone;
+         qDebug() << TicketV[0].Description;
+         qDebug() << TicketV[0].response;
+         qDebug() << TicketV[0].Category;
+
+        ui->label_21->setText("Ticket has been successfully Generated. A confirmation email has been sent too..");
+        ui->label_23->setText(TestTicket.Email);
+
+
+
+
+
+
+
 
 }
 
@@ -277,4 +334,109 @@ void MainWindow::on_pushButton_20_clicked()
 
 
 
+
+
+void MainWindow::on_pushButton_24_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+
+    //~~~~~~File code starts~~~~~~~~~~~~
+     QFile userFile("Tickets.txt");
+     userFile.open(QIODevice::ReadOnly | QIODevice::Text);
+     QTextStream in(&userFile);
+     //~~~~~~File code ends~~~~~~~~~~~~
+    QVector<Ticket> TicketV;
+
+     while(!in.atEnd())
+     {
+         QString line = in.readLine();
+         QStringList data= line.split(",");
+            Ticket Temp;
+
+        Temp.fName = data.at(0);
+        Temp.lName = data.at(1);
+        Temp.Email = data.at(2);
+        Temp.Phone = data.at(3);
+        Temp.Description = data.at(4);
+        Temp.response = data.at(5);
+        Temp.Category = data.at(6);
+        Temp.Time_Stamp = data.at(7);
+        Temp.Support_Level = data.at(8);
+
+        TicketV.push_back(Temp);
+
+      }
+
+     for(int i = 0; i<TicketV.size(); i++)
+         {
+
+        if (TicketV[i].Support_Level == "O") {
+        ui->listWidget->addItem(TicketV[i].fName);
+        } else if (TicketV[i].Support_Level == "P") {
+
+            ui->Processing->addItem(TicketV[i].fName);
+
+        } else if (TicketV[i].Support_Level == "C") {
+
+            ui->Closed->addItem(TicketV[i].fName);
+        }
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    int temp = ui->listWidget->row(item);
+    qDebug() << ui->listWidget->row(item);
+
+
+    qDebug() << temp;
+    QMessageBox::information(this,"Login", QString::number(temp));
+    ui->stackedWidget->setCurrentIndex(6);
+
+    //~~~~~~File code starts~~~~~~~~~~~~
+     QFile userFile("Tickets.txt");
+     userFile.open(QIODevice::ReadOnly | QIODevice::Text);
+     QTextStream in(&userFile);
+     //~~~~~~File code ends~~~~~~~~~~~~
+    QVector<Ticket> TicketV;
+
+     while(!in.atEnd())
+     {
+         QString line = in.readLine();
+         QStringList data= line.split(",");
+            Ticket Temp;
+
+        Temp.fName = data.at(0);
+        Temp.lName = data.at(1);
+        Temp.Email = data.at(2);
+        Temp.Phone = data.at(3);
+        Temp.Description = data.at(4);
+        Temp.response = data.at(5);
+        Temp.Category = data.at(6);
+        Temp.Time_Stamp = data.at(7);
+        Temp.Support_Level = data.at(8);
+
+        TicketV.push_back(Temp);
+
+      }
+
+    ui->TicketDis->setPlainText(TicketV[temp].Description);
+    ui->TicketfName->setText(TicketV[temp].fName);
+    ui->TicketlName->setText(TicketV[temp].lName);
+    ui->TicketTime->setText(TicketV[temp].Time_Stamp);
+    ui->TicketUrgency->setText(TicketV[temp].Description);
+
+}
 
