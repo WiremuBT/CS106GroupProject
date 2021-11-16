@@ -24,7 +24,7 @@
        <string notr="true">background-colour: #7BCAED;</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="MAINWINDOW">
        <widget class="QPushButton" name="pushButton_2">
