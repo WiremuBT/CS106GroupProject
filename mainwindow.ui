@@ -24,7 +24,7 @@
        <string notr="true">background-colour: #7BCAED;</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="MAINWINDOW">
        <widget class="QPushButton" name="pushButton_2">
@@ -878,7 +878,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <enum>QTabWidget::Triangular</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
