@@ -64,16 +64,42 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    QString Username = ui->lineEdit->text();
-       QString Password = ui->lineEdit_2->text();
-       Admin Admin;
-       Admin.Username = "admin";
-       Admin.Password = "admin";
-       if ((Username==Admin.Username)&&(Password==Admin.Password)) {
+    ui->pushButton_5->setDefault(true);
+    ui->pushButton_5->setAutoDefault(false);
 
-       QMessageBox::information(this,"Login","Successfull!!!");
-       ui->stackedWidget->setCurrentIndex(3);
-}
+    Agent Agent;
+    Agent.uname = ui->lineEdit->text();
+    Agent.password = ui->lineEdit_2->text();
+
+    if(Agent.uname=="admin" && Agent.password=="admin")
+    {
+        QMessageBox::information(this,"Login","Successfull");
+        ui->stackedWidget->setCurrentIndex(3);
+    }
+
+    //File code starts
+    QFile agentFile("agents.txt");
+    agentFile.open(QFile::ReadOnly | QFile::Text);
+    QTextStream in(&agentFile);
+    //file code ends
+
+    while(!in.atEnd())
+    {
+        QString line = in.readLine();
+        QStringList data = line.split(",");
+
+        if(Agent.uname==data.at(3) && Agent.password==data.at(4))
+        {
+            QMessageBox::information(this,"Login","Successfull");
+            ui->stackedWidget->setCurrentIndex(4);
+        }
+
+
+    }
+
+    ui->lineEdit->clear();
+    ui->lineEdit_2->clear();
+
 }
 
 void MainWindow::on_pushButton_12_clicked()
@@ -245,7 +271,7 @@ void MainWindow::on_pushButton_16_clicked()
 
 void MainWindow::on_pushButton_17_clicked()
 {    
-    Agent Agent;
+    Agent Agent;    
     Agent.userid = ui->lineEdit_userid->text();
     Agent.fname = ui->lineEdit_fname->text();
     Agent.lname = ui->lineEdit_lname->text();
@@ -253,6 +279,7 @@ void MainWindow::on_pushButton_17_clicked()
     Agent.password = ui->lineEdit_password->text();
     Agent.email = ui->lineEdit_email->text();
     Agent.phnum = ui->lineEdit_phnum->text();
+    ui->comboBox_2->currentText();
 
 
      ui->lineEdit_userid->clear();
@@ -271,100 +298,19 @@ void MainWindow::on_pushButton_17_clicked()
     //  File code ends
 
       out << Agent.userid << (',') << Agent.fname << (',') << Agent.lname << (',') << Agent.uname
-        << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',')  << Qt::endl;
+        << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',') << ui->comboBox_2->currentText() << Qt::endl;
     agentFile.close();
 
-      agentFile.open(QFile::ReadOnly | QFile::Text);
-      QTextStream in(&agentFile);
-
-//      while(!in.atEnd())
-//      {
-//          QString line = in.readLine();
-//          QStringList data = line.split(",");
-
-//          if(Agent.uname==data.at(3) && (Agent.password==data.at(4)))
-//          {
-//              QMessageBox::information(this, "Agent Creation", "Agent Username Already Exists!");
-
-//          }
-//          else
-//          {
-//              QMessageBox::information(this, "Agent Creation", "New Agent Created");
-//              agentFile.close();
-//          }
-//      }
-
+    QMessageBox::information(this, "Agent Creation", "New Agent Created Successfully");
 
 }
-
-void MainWindow::on_pushButton_20_clicked()
-{
-    Agent Agent;
-
-    Agent.uname = ui->lineEdit_6->text();
-    Agent.password = ui->lineEdit_7->text();
-
-    //  File code starts
-    QFile agentFile("agents.txt");
-    agentFile.open(QFile::ReadOnly | QFile::Text);
-    QTextStream in(&agentFile);
-    //  File code ends
-
-    while(!in.atEnd())
-    {
-        QString line = in.readLine();
-        QStringList data = line.split(",");
-
-        if(Agent.uname==data.at(3) && Agent.password==data.at(4))
-        {
-            QMessageBox::information(this, "Agent Login", "Login Successful!");
-            ui->stackedWidget->setCurrentIndex(5);
-            agentFile.close();
-        }
-        else
-        {
-            QMessageBox::information(this, "Agent Login", "Invalid Username/Password try again");
-        }
-    }
-
-}
-
 
 
 void MainWindow::on_pushButton_21_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(4);
+     ui->stackedWidget->setCurrentIndex(2);
 }
 
-
-
-/* void MainWindow::on_pushButton_19_clicked()
-{
-    QFile agentFile("agents.txt");
-    if(!agentFile.open(QFile::ReadOnly | QFile::Text))
-    {
-        QMessageBox::warning(this, "File", "File is not open");
-    }
-    QTextStream in(&agentFile);
-    QString rdata= in.readAll();
-    ui->plainTextEdit_2->setPlainText(rdata);
-    agentFile.close();
-}
-*/
-
-/*void MainWindow::on_pushButton_13_clicked()
-{
-    QFile agentFile("agents.txt");
-    if(!agentFile.open(QFile::WriteOnly|QFile::Text))
-    {
-        QMessageBox::warning(this, "File", "File is not open");
-    }
-    QTextStream out(&agentFile);
-    QString data = ui->plainTextEdit_2->toPlainText();
-    out << data;
-    agentFile.flush();
-    agentFile.close();
- } */
 
 
 void MainWindow::on_pushButton_24_clicked()

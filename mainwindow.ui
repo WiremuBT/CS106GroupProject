@@ -543,14 +543,14 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </rect>
         </property>
         <property name="text">
-         <string>back</string>
+         <string>Back</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_5">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>100</y>
+          <x>320</x>
+          <y>280</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -558,44 +558,56 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
         <property name="text">
          <string>Submit</string>
         </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
        </widget>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
-          <x>9</x>
-          <y>39</y>
-          <width>191</width>
-          <height>52</height>
+          <x>302</x>
+          <y>190</y>
+          <width>208</width>
+          <height>48</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Username</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit"/>
-           </item>
-          </layout>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username</string>
+           </property>
+          </widget>
          </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Password</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit_2"/>
-           </item>
-          </layout>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Password</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -614,309 +626,308 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <string>back</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_4">
+       <widget class="QTabWidget" name="tabWidget_3">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>40</y>
-          <width>164</width>
-          <height>30</height>
+          <x>-4</x>
+          <y>50</y>
+          <width>1271</width>
+          <height>621</height>
          </rect>
         </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
+        <property name="currentIndex">
+         <number>0</number>
         </property>
-        <property name="text">
-         <string>Agent Creation</string>
-        </property>
-       </widget>
-       <widget class="QPlainTextEdit" name="plainTextEdit_2">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>80</y>
-          <width>241</width>
-          <height>211</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_20">
-        <property name="geometry">
-         <rect>
-          <x>590</x>
-          <y>510</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Log In</string>
-        </property>
-       </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>560</x>
-          <y>450</y>
-          <width>189</width>
-          <height>48</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_5">
+        <widget class="QWidget" name="tab_8">
+         <attribute name="title">
+          <string>Add New Agent</string>
+         </attribute>
+         <widget class="QComboBox" name="comboBox_2">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>457</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>Category</string>
+          </property>
+          <item>
            <property name="text">
-            <string>Username</string>
+            <string>Agents Ticketing Category:</string>
            </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEdit_6"/>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_6">
+          </item>
+          <item>
            <property name="text">
-            <string>Password</string>
+            <string>General Issue</string>
            </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_7"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QPushButton" name="pushButton_24">
-        <property name="geometry">
-         <rect>
-          <x>990</x>
-          <y>590</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>GoToAgentPage</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_email">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>375</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="frame">
-         <bool>true</bool>
-        </property>
-        <property name="placeholderText">
-         <string>Email</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_password">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>317</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Password</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_17">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>544</y>
-          <width>131</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>13</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Create</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_phnum">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>433</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Phone</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_lname">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>200</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Last Name</string>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="comboBox_2">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>491</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Category</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>Agents Ticketing Category:</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>General Issue</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Performance</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Bugs</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Service Issue</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_userid">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>84</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>User ID</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_fname">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>142</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>First Name</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_uname">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>258</y>
-          <width>361</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Username</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_25">
-        <property name="geometry">
-         <rect>
-          <x>700</x>
-          <y>310</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Read</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_19">
-        <property name="geometry">
-         <rect>
-          <x>830</x>
-          <y>310</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Write</string>
-        </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Performance</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Bugs</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Service Issue</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_fname">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>108</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>First Name</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_17">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>510</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Create</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_phnum">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>399</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>Phone</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_uname">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>224</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>Username</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_email">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>341</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="placeholderText">
+           <string>Email</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_lname">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>166</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>Last Name</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_password">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>283</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>Password</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_userid">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>50</y>
+            <width>361</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>User ID</string>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="plainTextEdit">
+          <property name="geometry">
+           <rect>
+            <x>710</x>
+            <y>50</y>
+            <width>481</width>
+            <height>161</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_9">
+         <attribute name="title">
+          <string>Agents Details</string>
+         </attribute>
+         <widget class="QPushButton" name="pushButton_19">
+          <property name="geometry">
+           <rect>
+            <x>410</x>
+            <y>460</y>
+            <width>98</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Edit Agents Details</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_25">
+          <property name="geometry">
+           <rect>
+            <x>176</x>
+            <y>460</y>
+            <width>107</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>View Current Agents</string>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="plainTextEdit_2">
+          <property name="geometry">
+           <rect>
+            <x>96</x>
+            <y>60</y>
+            <width>481</width>
+            <height>371</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="AGENT_PAGE">
@@ -1281,7 +1292,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <string>Back</string>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -2009,6 +2020,65 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>pushButton_11</tabstop>
+  <tabstop>pushButton_10</tabstop>
+  <tabstop>pushButton_9</tabstop>
+  <tabstop>pushButton_8</tabstop>
+  <tabstop>pushButton_7</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>checkBox_5</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_8</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>lineEdit_5</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>comboBox_4</tabstop>
+  <tabstop>checkBox</tabstop>
+  <tabstop>checkBox_2</tabstop>
+  <tabstop>checkBox_3</tabstop>
+  <tabstop>checkBox_4</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>pushButton_16</tabstop>
+  <tabstop>plainTextEdit_2</tabstop>
+  <tabstop>pushButton_25</tabstop>
+  <tabstop>pushButton_17</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>comboBox_2</tabstop>
+  <tabstop>lineEdit_userid</tabstop>
+  <tabstop>lineEdit_fname</tabstop>
+  <tabstop>lineEdit_lname</tabstop>
+  <tabstop>lineEdit_uname</tabstop>
+  <tabstop>lineEdit_password</tabstop>
+  <tabstop>lineEdit_email</tabstop>
+  <tabstop>lineEdit_phnum</tabstop>
+  <tabstop>pushButton_19</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>listWidget</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>Processing</tabstop>
+  <tabstop>Closed</tabstop>
+  <tabstop>Re_Opened</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>pushButton_21</tabstop>
+  <tabstop>pushButton_12</tabstop>
+  <tabstop>pushButton_13</tabstop>
+  <tabstop>pushButton_14</tabstop>
+  <tabstop>pushButton_15</tabstop>
+  <tabstop>pushButton_22</tabstop>
+  <tabstop>pushButton_23</tabstop>
+  <tabstop>Response_Edit</tabstop>
+  <tabstop>pushButton_25</tabstop>
+  <tabstop>Reponse_Submit</tabstop>
+  <tabstop>tabWidget_3</tabstop>
+  <tabstop>plainTextEdit</tabstop>
+  <tabstop>pushButton_25</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
