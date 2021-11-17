@@ -698,7 +698,7 @@ void MainWindow::on_Processing_itemClicked(QListWidgetItem *item)
 
     qDebug() << temp;
     QMessageBox::information(this,"Login", QString::number(temp));
-    ui->stackedWidget->setCurrentIndex(6);
+    ui->stackedWidget->setCurrentIndex(7);
 
     //~~~~~~File code starts~~~~~~~~~~~~
      QFile userFile("Processing.txt");
@@ -730,42 +730,25 @@ void MainWindow::on_Processing_itemClicked(QListWidgetItem *item)
 
       }
 
-    ui->TicketDis->setText(TicketV[temp].Description);
-    ui->TicketfName->setText(TicketV[temp].fName);
-    ui->TicketlName->setText(TicketV[temp].lName);
-    ui->TicketTime->setText(TicketV[temp].Time_Stamp);
-    ui->TicketPhone->setText(TicketV[temp].Phone);
-    ui->TicketEmail->setText(TicketV[temp].Email);
-    ui->TicketResponse->setText(TicketV[temp].response);
-    ui->TicketSupport->setText(TicketV[temp].Support_Level);
-    ui->Response_Edit->setPlainText(TicketV[temp].Response_Process);
-    ui->TicketCategory->setText(TicketV[temp].Category);
+    ui->TicketDis_2->setText(TicketV[temp].Description);
+    ui->TicketfName_2->setText(TicketV[temp].fName);
+    ui->TicketlName_2->setText(TicketV[temp].lName);
+    ui->TicketTime_2->setText(TicketV[temp].Time_Stamp);
+    ui->TicketPhone_2->setText(TicketV[temp].Phone);
+    ui->TicketEmail_2->setText(TicketV[temp].Email);
+    ui->TicketResponse_2->setText(TicketV[temp].response);
+    ui->TicketSupport_2->setText(TicketV[temp].Support_Level);
+    ui->TicketResponse_3->setText(TicketV[temp].Response_Process);
+    ui->TicketCategory_2->setText(TicketV[temp].Category);
+    ui->TicketTags_2->setText(TicketV[temp].Tags2);
 
 
 
-
-    ui->TicketTags->setText(TicketV[temp].Tags2);
-
-    if (TicketV[temp].Category == "B") {
-
-        ui->TicketCategory->setText("Bug Report");
-
-    } else if (TicketV[temp].Category == "P") {
-
-        ui->TicketCategory->setText("Performance Report");
-} else if (TicketV[temp].Category == "G") {
-
-        ui->TicketCategory->setText("General Issue");
-       } else if (TicketV[temp].Category == "S") {
-        ui->TicketCategory->setText("Service Report");
-    }
-
-
-    if ((TicketV[temp].Category == "B")||(TicketV[temp].Category == "P")) {
+    if ((TicketV[temp].Category == "Bug Report")||(TicketV[temp].Category == "Performance Report")) {
 
         TicketV[temp].Urgency = "High";
 
-    } else if (TicketV[temp].Category == "G") {
+    } else if (TicketV[temp].Category == "General Issue") {
 
         TicketV[temp].Urgency = "Medium";
 
@@ -776,7 +759,7 @@ void MainWindow::on_Processing_itemClicked(QListWidgetItem *item)
 
     }
 
-    ui->TicketUrgency->setText(TicketV[temp].Urgency);
+    ui->TicketUrgency_2->setText(TicketV[temp].Urgency);
 
 
 
