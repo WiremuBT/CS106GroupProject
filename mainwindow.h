@@ -70,6 +70,8 @@ private slots:
 
     void on_Processing_itemClicked(QListWidgetItem *item);
 
+    void on_pushButton_26_clicked();
+
 private:
     Ui::MainWindow *ui;
 
