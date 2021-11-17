@@ -33,9 +33,6 @@ public:
 private slots:
 
 
-
-
-
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
@@ -50,32 +47,21 @@ private slots:
 
     void on_pushButton_6_clicked();
 
-
-
     void on_pushButton_16_clicked();
 
     void on_pushButton_17_clicked();
-
-    void on_pushButton_18_clicked();
 
     void on_pushButton_21_clicked();
 
     void on_pushButton_20_clicked();
 
-
-<<<<<<< HEAD
     void on_pushButton_24_clicked();
 
-
-
-
-
     void on_listWidget_itemClicked(QListWidgetItem *item);
-=======
+
     void on_pushButton_19_clicked();
 
-    void on_pushButton_13_clicked();
->>>>>>> 170576db26670bd7fd27ea10e6a3ca602458e8a7
+    void on_pushButton_25_clicked();
 
 private:
     Ui::MainWindow *ui;

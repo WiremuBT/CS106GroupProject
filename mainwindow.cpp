@@ -31,11 +31,6 @@ MainWindow::~MainWindow()
 
 
 
-
-
-
-
-
 void MainWindow::on_pushButton_2_clicked()
 {
 
@@ -197,17 +192,7 @@ void MainWindow::on_pushButton_6_clicked()
 
 
 
-
-
-
-
-
     }
-
-
-
-
-
 
 
 
@@ -294,7 +279,7 @@ void MainWindow::on_pushButton_20_clicked()
         if(Agent.uname==data.at(3) && Agent.password==data.at(4))
         {
             QMessageBox::information(this, "Agent Login", "Login Successful!");
-            ui->stackedWidget->setCurrentIndex(5);
+            ui->stackedWidget->setCurrentIndex(4);
             agentFile.close();
         }
         else
@@ -305,54 +290,13 @@ void MainWindow::on_pushButton_20_clicked()
 
 }
 
-void MainWindow::on_pushButton_18_clicked()
-{
-    QFile agentFile("agents.txt");
-    if(!agentFile.open(QFile::ReadOnly | QFile::Text))
-    {
-        QMessageBox::warning(this, "Agents File", "File is not open!");
-    }
-    QTextStream in(&agentFile);
-    QString rdata= in.readAll();
-    ui->plainTextEdit->setPlainText(rdata);
-    agentFile.close();
-}
 
 
 void MainWindow::on_pushButton_21_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(4);
+     ui->stackedWidget->setCurrentIndex(3);
 }
 
-
-
-void MainWindow::on_pushButton_19_clicked()
-{
-    QFile agentFile("agents.txt");
-    if(!agentFile.open(QFile::ReadOnly | QFile::Text))
-    {
-        QMessageBox::warning(this, "File", "File is not open");
-    }
-    QTextStream in(&agentFile);
-    QString rdata= in.readAll();
-    ui->plainTextEdit_2->setPlainText(rdata);
-    agentFile.close();
-}
-
-
-void MainWindow::on_pushButton_13_clicked()
-{
-    QFile agentFile("agents.txt");
-    if(!agentFile.open(QFile::WriteOnly|QFile::Text))
-    {
-        QMessageBox::warning(this, "File", "File is not open");
-    }
-    QTextStream out(&agentFile);
-    QString data = ui->plainTextEdit_2->toPlainText();
-    out << data;
-    agentFile.flush();
-    agentFile.close();
-}
 
 
 void MainWindow::on_pushButton_24_clicked()
@@ -410,10 +354,6 @@ void MainWindow::on_pushButton_24_clicked()
 
 
 
-
-
-
-
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     int temp = ui->listWidget->row(item);
@@ -457,5 +397,35 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     ui->TicketTime->setText(TicketV[temp].Time_Stamp);
     ui->TicketUrgency->setText(TicketV[temp].Description);
 
+}
+
+
+
+void MainWindow::on_pushButton_25_clicked()
+{
+    QFile agentFile("agents.txt");
+    if(!agentFile.open(QFile::ReadOnly | QFile::Text))
+    {
+        QMessageBox::warning(this, "File", "File is not open");
+    }
+    QTextStream in(&agentFile);
+    QString rdata= in.readAll();
+    ui->plainTextEdit_2->setPlainText(rdata);
+    agentFile.close();
+}
+
+
+void MainWindow::on_pushButton_19_clicked()
+{
+    QFile agentFile("agents.txt");
+    if(!agentFile.open(QFile::WriteOnly|QFile::Text))
+    {
+        QMessageBox::warning(this, "File", "File is not open");
+    }
+    QTextStream out(&agentFile);
+    QString data = ui->plainTextEdit_2->toPlainText();
+    out << data;
+    agentFile.flush();
+    agentFile.close();
 }
 
