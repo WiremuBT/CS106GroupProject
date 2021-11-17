@@ -13,6 +13,9 @@
 #include <vector>
 #include <stdlib.h>
 #include <QDateTime>
+#include <QUrl>
+#include <QtCore>
+#include <QDesktopServices>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -88,6 +91,10 @@ void MainWindow::on_pushButton_6_clicked()
         QString formatTime = date.toString("dd.MM.yyyy hh:mm:ss");
 
 
+
+
+
+
         Ticket TestTicket;
         TestTicket.fName = ui->lineEdit_3->text();
         TestTicket.lName = ui->lineEdit_8->text();
@@ -96,18 +103,43 @@ void MainWindow::on_pushButton_6_clicked()
         TestTicket.Description = ui->textEdit->toPlainText();
         TestTicket.Description.remove(',');
         TestTicket.Time_Stamp = formatTime;
-        TestTicket.Support_Level = "O";
+        TestTicket.Support_Level = "Open";
+        if(ui->checkBox->isChecked()) {
 
+          TestTicket.Tags[0] = "Connection";
 
+        }
 
+        if (ui->checkBox_2->isChecked()){
+
+            TestTicket.Tags[1] = "Hardware";
+
+        }
+
+        if (ui->checkBox_3->isChecked()) {
+
+            TestTicket.Tags[2] = "Software";
+
+        }
+
+        if (ui->checkBox_4->isChecked()) {
+
+            TestTicket.Tags[3] = "Login";
+
+        }
+
+        qDebug() << TestTicket.Tags[0];
+        qDebug() << TestTicket.Tags[1];
+        qDebug() << TestTicket.Tags[2];
+        qDebug() << TestTicket.Tags[3];
 
 
 
         if(ui->comboBox->currentIndex() == 0) {
 
-            TestTicket.response = "E";
+            TestTicket.response = "Email";
         } else {
-            TestTicket.response = "P";
+            TestTicket.response = "Phone";
         }
 
 
@@ -146,7 +178,7 @@ void MainWindow::on_pushButton_6_clicked()
 
         out << TestTicket.fName << (',') << TestTicket.lName << (',') << TestTicket.Email << (',')
              << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << (',')
-             << TestTicket.Time_Stamp << (',') << TestTicket.Support_Level << Qt::endl;
+             << TestTicket.Time_Stamp << (',') << TestTicket.Support_Level << (',') << TestTicket.Tags[0] << (',') << TestTicket.Tags[1] << (',') << TestTicket.Tags[2] << (',') << TestTicket.Tags[3] << Qt::endl;
 
         //Needs QMessagebox for successfull creation and failure.
 
@@ -171,7 +203,10 @@ void MainWindow::on_pushButton_6_clicked()
             Temp.Category = data.at(6);
             Temp.Time_Stamp = data.at(7);
             Temp.Support_Level = data.at(8);
-
+            Temp.Tags[0] = data.at(9);
+            Temp.Tags[1] = data.at(10);
+            Temp.Tags[2] = data.at(11);
+            Temp.Tags[3] = data.at(12);
             TicketV.push_back(Temp);
 
 
@@ -186,6 +221,10 @@ void MainWindow::on_pushButton_6_clicked()
          qDebug() << TicketV[0].Description;
          qDebug() << TicketV[0].response;
          qDebug() << TicketV[0].Category;
+         qDebug() << TicketV[0].Tags[0];
+         qDebug() << TicketV[0].Tags[1];
+         qDebug() << TicketV[0].Tags[2];
+         qDebug() << TicketV[0].Tags[3];
 
         ui->label_21->setText("Ticket has been successfully Generated. A confirmation email has been sent too..");
         ui->label_23->setText(TestTicket.Email);
@@ -362,17 +401,76 @@ void MainWindow::on_pushButton_24_clicked()
      for(int i = 0; i<TicketV.size(); i++)
          {
 
-        if (TicketV[i].Support_Level == "O") {
+        if (TicketV[i].Support_Level == "Open") {
         ui->listWidget->addItem(TicketV[i].fName);
-        } else if (TicketV[i].Support_Level == "P") {
+        }
 
-            ui->Processing->addItem(TicketV[i].fName);
 
-        } else if (TicketV[i].Support_Level == "C") {
+
+
+            }
+
+
+
+    userFile.close();
+
+
+     QFile userFile2("Processing.txt");
+     userFile2.open(QIODevice::ReadOnly | QIODevice::Text);
+     QTextStream in2(&userFile2);
+     //~~~~~~File code ends~~~~~~~~~~~~
+    QVector<Ticket> TicketV2;
+    Ticket Temp2;
+     while(!in2.atEnd())
+     {
+         QString line2 = in2.readLine();
+         QStringList data2= line2.split(",");
+
+
+        Temp2.fName = data2.at(0);
+        Temp2.lName = data2.at(1);
+        Temp2.Email = data2.at(2);
+        Temp2.Phone = data2.at(3);
+        Temp2.Description = data2.at(4);
+        Temp2.response = data2.at(5);
+        Temp2.Category = data2.at(6);
+        Temp2.Time_Stamp = data2.at(7);
+        Temp2.Support_Level = data2.at(8);
+        Temp2.Tags2 = data2.at(9);
+        Temp2.Urgency = data2.at(10);
+        Temp2.Response_Process = data2.at(11);
+
+
+
+        qDebug() << Temp2.fName;
+        TicketV2.push_back(Temp2);
+
+      }
+
+        for(int i = 0; i<TicketV2.size(); i++) {
+
+        if (TicketV2[i].Support_Level == "Processing") {
+
+            ui->Processing->addItem(TicketV2[i].fName);
+
+        }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /* (TicketV[i].Support_Level == "Closed") {
 
             ui->Closed->addItem(TicketV[i].fName);
         }
-}
+*/
 
 
 
@@ -385,6 +483,12 @@ void MainWindow::on_pushButton_24_clicked()
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
+    QString ExampleEmail = "Hi [Customer], \n\nI'm so sorry that you had a negative experience with [product, service, or company department]. I've looked into the issue, and it seems that [briefly explain the reason for their bad experience, if applicable]. \n\nI've forwarded this issue to [head of the appropriate department], our [person's job title]. In the meantime, I'd like to offer a [discount/refund] for the inconvenience and will be checking in with you in a few days to update you on the status of [issue]. \n\nOnce more, I sincerely apologize for the inconvenience. Please let me know if I can answer any questions, and I'd be happy to help! \n\n[Your name]";
+
+
+    ui->Response_Edit->setPlainText(ExampleEmail);
+
+
     int temp = ui->listWidget->row(item);
     qDebug() << ui->listWidget->row(item);
 
@@ -415,7 +519,10 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         Temp.Category = data.at(6);
         Temp.Time_Stamp = data.at(7);
         Temp.Support_Level = data.at(8);
-
+        Temp.Tags[0] = data.at(9);
+        Temp.Tags[1] = data.at(10);
+        Temp.Tags[2] = data.at(11);
+        Temp.Tags[3] = data.at(12);
 
         TicketV.push_back(Temp);
 
@@ -427,6 +534,15 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     ui->TicketTime->setText(TicketV[temp].Time_Stamp);
     ui->TicketPhone->setText(TicketV[temp].Phone);
     ui->TicketEmail->setText(TicketV[temp].Email);
+    ui->TicketResponse->setText(TicketV[temp].response);
+    ui->TicketSupport->setText(TicketV[temp].Support_Level);
+
+
+    QString TagsC;
+
+    TagsC = TicketV[temp].Tags[0] + " " + TicketV[temp].Tags[1] + " " + TicketV[temp].Tags[2] + " " + TicketV[temp].Tags[3];
+
+    ui->TicketTags->setText(TagsC);
 
     if (TicketV[temp].Category == "B") {
 
@@ -441,6 +557,29 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
        } else if (TicketV[temp].Category == "S") {
         ui->TicketCategory->setText("Service Report");
     }
+
+
+    if ((TicketV[temp].Category == "B")||(TicketV[temp].Category == "P")) {
+
+        TicketV[temp].Urgency = "High";
+
+    } else if (TicketV[temp].Category == "G") {
+
+        TicketV[temp].Urgency = "Medium";
+
+
+    } else {
+
+        TicketV[temp].Urgency = "Low";
+
+    }
+
+    ui->TicketUrgency->setText(TicketV[temp].Urgency);
+
+
+
+
+
 
 
 }
@@ -473,5 +612,178 @@ void MainWindow::on_pushButton_19_clicked()
     out << data;
     agentFile.flush();
     agentFile.close();
+}
+
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://www.google.com", QUrl::TolerantMode));
+}
+
+
+void MainWindow::on_Reponse_Submit_clicked()
+{
+
+
+    Ticket TestTicket;
+
+    TestTicket.fName = ui->TicketfName->text();
+    TestTicket.lName = ui->TicketlName->text();
+    TestTicket.Email = ui->TicketEmail->text();
+    TestTicket.Phone = ui->TicketPhone->text();
+    TestTicket.Description = ui->TicketDis->text();
+    TestTicket.Response_Process = ui->Response_Edit->toPlainText();
+    TestTicket.Time_Stamp = ui->TicketTime->text();
+    TestTicket.Tags2 = ui->TicketTags->text();
+    TestTicket.Urgency = ui->TicketUrgency->text();
+    TestTicket.Category = ui->TicketCategory->text();
+    TestTicket.Support_Level = "Processing";
+    TestTicket.response = ui->TicketResponse->text();
+    TestTicket.Response_Process.remove(',');
+    TestTicket.Response_Process.remove('\n');
+    TestTicket.Response_Process.remove('\r');
+
+
+    //  File code starts
+    QFile agentFile("Processing.txt");
+    agentFile.open(QIODevice::Append | QIODevice::Text);
+    QTextStream out(&agentFile);
+    //  File code ends
+
+    out << TestTicket.fName << (',') << TestTicket.lName << (',') << TestTicket.Email << (',')
+         << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << (',')
+         << TestTicket.Time_Stamp << (',') << TestTicket.Support_Level << (',') << TestTicket.Tags2 << (',') << TestTicket.Urgency << (',') << TestTicket.Response_Process <<Qt::endl;
+
+
+    agentFile.close();
+
+   QFile f("Tickets.txt");
+   if(f.open(QIODevice::ReadWrite | QIODevice::Text))
+   {
+       QString s = "";
+       QTextStream t(&f);
+       while(!t.atEnd())
+       {
+           QString line = t.readLine();
+           if(!line.contains(TestTicket.Email))
+               s.append(line + "\n");
+       }
+       f.resize(0);
+       t << s;
+       f.close();
+   }
+
+ui->stackedWidget->setCurrentIndex(4);
+
+
+
+
+
+
+}
+
+
+void MainWindow::on_pushButton_18_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_Processing_itemClicked(QListWidgetItem *item)
+{
+
+    int temp = ui->Processing->row(item);
+    qDebug() << ui->Processing->row(item);
+
+
+    qDebug() << temp;
+    QMessageBox::information(this,"Login", QString::number(temp));
+    ui->stackedWidget->setCurrentIndex(6);
+
+    //~~~~~~File code starts~~~~~~~~~~~~
+     QFile userFile("Processing.txt");
+     userFile.open(QIODevice::ReadOnly | QIODevice::Text);
+     QTextStream in(&userFile);
+     //~~~~~~File code ends~~~~~~~~~~~~
+    QVector<Ticket> TicketV;
+
+     while(!in.atEnd())
+     {
+         QString line = in.readLine();
+         QStringList data= line.split(",");
+            Ticket Temp;
+
+            Temp.fName = data.at(0);
+            Temp.lName = data.at(1);
+            Temp.Email = data.at(2);
+            Temp.Phone = data.at(3);
+            Temp.Description = data.at(4);
+            Temp.response = data.at(5);
+            Temp.Category = data.at(6);
+            Temp.Time_Stamp = data.at(7);
+            Temp.Support_Level = data.at(8);
+            Temp.Tags2 = data.at(9);
+            Temp.Urgency = data.at(10);
+            Temp.Response_Process = data.at(11);
+
+            TicketV.push_back(Temp);
+
+      }
+
+    ui->TicketDis->setText(TicketV[temp].Description);
+    ui->TicketfName->setText(TicketV[temp].fName);
+    ui->TicketlName->setText(TicketV[temp].lName);
+    ui->TicketTime->setText(TicketV[temp].Time_Stamp);
+    ui->TicketPhone->setText(TicketV[temp].Phone);
+    ui->TicketEmail->setText(TicketV[temp].Email);
+    ui->TicketResponse->setText(TicketV[temp].response);
+    ui->TicketSupport->setText(TicketV[temp].Support_Level);
+    ui->Response_Edit->setPlainText(TicketV[temp].Response_Process);
+    ui->TicketCategory->setText(TicketV[temp].Category);
+
+
+
+
+    ui->TicketTags->setText(TicketV[temp].Tags2);
+
+    if (TicketV[temp].Category == "B") {
+
+        ui->TicketCategory->setText("Bug Report");
+
+    } else if (TicketV[temp].Category == "P") {
+
+        ui->TicketCategory->setText("Performance Report");
+} else if (TicketV[temp].Category == "G") {
+
+        ui->TicketCategory->setText("General Issue");
+       } else if (TicketV[temp].Category == "S") {
+        ui->TicketCategory->setText("Service Report");
+    }
+
+
+    if ((TicketV[temp].Category == "B")||(TicketV[temp].Category == "P")) {
+
+        TicketV[temp].Urgency = "High";
+
+    } else if (TicketV[temp].Category == "G") {
+
+        TicketV[temp].Urgency = "Medium";
+
+
+    } else {
+
+        TicketV[temp].Urgency = "Low";
+
+    }
+
+    ui->TicketUrgency->setText(TicketV[temp].Urgency);
+
+
+
+
+
+
+
+
 }
 

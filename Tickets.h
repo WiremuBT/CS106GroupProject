@@ -11,9 +11,10 @@ class Ticket {
    QString Email;
    QString Phone;
    QString Category,response;
-   QString Tags[5];
+   QString Tags[4];
+   QString Tags2;
    char Impact, Priority;
-   int Urgency;
+   QString Urgency;
    QString Time_Stamp;
    QString Agent_ResponseTag;
    QString Description;

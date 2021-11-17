@@ -51,7 +51,6 @@ private slots:
 
     void on_pushButton_17_clicked();
 
-    void on_pushButton_18_clicked();
 
     void on_pushButton_21_clicked();
 
@@ -70,6 +69,14 @@ private slots:
 
 
 
+
+    void on_pushButton_11_clicked();
+
+    void on_Reponse_Submit_clicked();
+
+    void on_pushButton_18_clicked();
+
+    void on_Processing_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
