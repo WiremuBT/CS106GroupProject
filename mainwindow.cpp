@@ -185,6 +185,50 @@ void MainWindow::on_pushButton_5_clicked()
 
 
 
+       QFile userFile3("Closed.txt");
+       userFile3.open(QIODevice::ReadOnly | QIODevice::Text);
+       QTextStream in4(&userFile3);
+       //~~~~~~File code ends~~~~~~~~~~~~
+      QVector<Ticket> TicketV3;
+      Ticket Temp4;
+       while(!in4.atEnd())
+       {
+           QString line3 = in4.readLine();
+           QStringList data3= line3.split(",");
+
+
+          Temp4.fName = data3.at(0);
+          Temp4.lName = data3.at(1);
+          Temp4.Email = data3.at(2);
+          Temp4.Phone = data3.at(3);
+          Temp4.Description = data3.at(4);
+          Temp4.response = data3.at(5);
+          Temp4.Category = data3.at(6);
+          Temp4.Time_Stamp = data3.at(7);
+          Temp4.Support_Level = data3.at(8);
+          Temp4.Tags2 = data3.at(9);
+          Temp4.Urgency = data3.at(10);
+          Temp4.Response_Process = data3.at(11);
+
+          qDebug() << Temp4.fName;
+          TicketV3.push_back(Temp4);
+
+        }
+
+          for(int i = 0; i<TicketV3.size(); i++) {
+
+          if (TicketV3[i].Support_Level == "Closed") {
+
+              ui->Closed->addItem(TicketV3[i].fName);
+
+          }}
+
+
+
+
+
+
+
 
     ui->lineEdit->clear();
     ui->lineEdit_2->clear();
@@ -935,4 +979,264 @@ void MainWindow::on_tabWidget_2_currentChanged(int index)
 {
 
 }
+
+
+void MainWindow::on_pushButton_27_clicked()
+{
+
+    Ticket TestTicket;
+
+    TestTicket.fName = ui->TicketfName_2->text();
+    TestTicket.lName = ui->TicketlName_2->text();
+    TestTicket.Email = ui->TicketEmail_2->text();
+    TestTicket.Phone = ui->TicketPhone_2->text();
+    TestTicket.Description = ui->TicketDis_2->text();
+    TestTicket.Response_Process = ui->TicketResponse_3->text();
+    TestTicket.Time_Stamp = ui->TicketTime_2->text();
+    TestTicket.Tags2 = ui->TicketTags_2->text();
+    TestTicket.Urgency = ui->TicketUrgency_2->text();
+    TestTicket.Category = ui->TicketCategory_2->text();
+    TestTicket.Support_Level = "Closed";
+    TestTicket.response = ui->TicketResponse_2->text();
+
+
+
+    //  File code starts
+    QFile agentFile("Closed.txt");
+    agentFile.open(QIODevice::Append | QIODevice::Text);
+    QTextStream out(&agentFile);
+    //  File code ends
+
+    out << TestTicket.fName << (',') << TestTicket.lName << (',') << TestTicket.Email << (',')
+         << TestTicket.Phone << (',') << TestTicket.Description << (',') << TestTicket.response << (',') << TestTicket.Category << (',')
+         << TestTicket.Time_Stamp << (',') << TestTicket.Support_Level << (',') << TestTicket.Tags2 << (',') << TestTicket.Urgency << (',') << TestTicket.Response_Process <<Qt::endl;
+
+
+    agentFile.close();
+
+   QFile f("Processing.txt");
+   if(f.open(QIODevice::ReadWrite | QIODevice::Text))
+   {
+       QString s = "";
+       QTextStream t(&f);
+       while(!t.atEnd())
+       {
+           QString line = t.readLine();
+           if(!line.contains(TestTicket.Description))
+               s.append(line + "\n");
+       }
+       f.resize(0);
+       t << s;
+       f.close();
+   }
+
+
+   ui->listWidget->clear();
+   ui->Processing->clear();
+   ui->Closed->clear();
+
+
+
+   //~~~~~~File code starts~~~~~~~~~~~~
+    QFile userFile("Tickets.txt");
+    userFile.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in3(&userFile);
+    //~~~~~~File code ends~~~~~~~~~~~~
+   QVector<Ticket> TicketV;
+
+    while(!in3.atEnd())
+    {
+        QString line = in3.readLine();
+        QStringList data= line.split(",");
+           Ticket Temp;
+
+       Temp.fName = data.at(0);
+       Temp.lName = data.at(1);
+       Temp.Email = data.at(2);
+       Temp.Phone = data.at(3);
+       Temp.Description = data.at(4);
+       Temp.response = data.at(5);
+       Temp.Category = data.at(6);
+       Temp.Time_Stamp = data.at(7);
+       Temp.Support_Level = data.at(8);
+
+       TicketV.push_back(Temp);
+
+     }
+
+    for(int i = 0; i<TicketV.size(); i++)
+        {
+
+       if (TicketV[i].Support_Level == "Open") {
+       ui->listWidget->addItem(TicketV[i].fName);
+       }
+
+    }
+   userFile.close();
+
+   QFile userFile2("Processing.txt");
+   userFile2.open(QIODevice::ReadOnly | QIODevice::Text);
+   QTextStream in2(&userFile2);
+   //~~~~~~File code ends~~~~~~~~~~~~
+  QVector<Ticket> TicketV2;
+  Ticket Temp2;
+   while(!in2.atEnd())
+   {
+       QString line2 = in2.readLine();
+       QStringList data2= line2.split(",");
+
+
+      Temp2.fName = data2.at(0);
+      Temp2.lName = data2.at(1);
+      Temp2.Email = data2.at(2);
+      Temp2.Phone = data2.at(3);
+      Temp2.Description = data2.at(4);
+      Temp2.response = data2.at(5);
+      Temp2.Category = data2.at(6);
+      Temp2.Time_Stamp = data2.at(7);
+      Temp2.Support_Level = data2.at(8);
+      Temp2.Tags2 = data2.at(9);
+      Temp2.Urgency = data2.at(10);
+      Temp2.Response_Process = data2.at(11);
+
+
+
+      qDebug() << Temp2.fName;
+      TicketV2.push_back(Temp2);
+
+    }
+
+      for(int i = 0; i<TicketV2.size(); i++) {
+
+      if (TicketV2[i].Support_Level == "Processing") {
+
+          ui->Processing->addItem(TicketV2[i].fName);
+
+      }
+
+       }
+
+
+      QFile userFile3("Closed.txt");
+      userFile3.open(QIODevice::ReadOnly | QIODevice::Text);
+      QTextStream in4(&userFile3);
+      //~~~~~~File code ends~~~~~~~~~~~~
+     QVector<Ticket> TicketV3;
+     Ticket Temp4;
+      while(!in4.atEnd())
+      {
+          QString line3 = in4.readLine();
+          QStringList data3= line3.split(",");
+
+
+         Temp4.fName = data3.at(0);
+         Temp4.lName = data3.at(1);
+         Temp4.Email = data3.at(2);
+         Temp4.Phone = data3.at(3);
+         Temp4.Description = data3.at(4);
+         Temp4.response = data3.at(5);
+         Temp4.Category = data3.at(6);
+         Temp4.Time_Stamp = data3.at(7);
+         Temp4.Support_Level = data3.at(8);
+         Temp4.Tags2 = data3.at(9);
+         Temp4.Urgency = data3.at(10);
+         Temp4.Response_Process = data3.at(11);
+
+         qDebug() << Temp4.fName;
+         TicketV3.push_back(Temp4);
+
+       }
+
+         for(int i = 0; i<TicketV3.size(); i++) {
+
+         if (TicketV3[i].Support_Level == "Closed") {
+
+             ui->Closed->addItem(TicketV3[i].fName);
+
+         }}
+
+
+
+
+
+
+
+
+
+
+
+
+ui->stackedWidget->setCurrentIndex(4);
+
+
+
+
+
+
+
+
+
+}
+
+
+void MainWindow::on_Closed_itemClicked(QListWidgetItem *item)
+{
+
+
+    int temp = ui->Closed->row(item);
+    qDebug() << ui->Closed->row(item);
+
+   ui->stackedWidget->setCurrentIndex(8);
+
+
+    QFile userFile3("Closed.txt");
+    userFile3.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in4(&userFile3);
+    //~~~~~~File code ends~~~~~~~~~~~~
+   QVector<Ticket> TicketV3;
+   Ticket Temp4;
+    while(!in4.atEnd())
+    {
+        QString line3 = in4.readLine();
+        QStringList data3= line3.split(",");
+
+
+       Temp4.fName = data3.at(0);
+       Temp4.lName = data3.at(1);
+       Temp4.Email = data3.at(2);
+       Temp4.Phone = data3.at(3);
+       Temp4.Description = data3.at(4);
+       Temp4.response = data3.at(5);
+       Temp4.Category = data3.at(6);
+       Temp4.Time_Stamp = data3.at(7);
+       Temp4.Support_Level = data3.at(8);
+       Temp4.Tags2 = data3.at(9);
+       Temp4.Urgency = data3.at(10);
+       Temp4.Response_Process = data3.at(11);
+
+       qDebug() << Temp4.fName;
+       TicketV3.push_back(Temp4);
+
+     }
+
+
+
+    ui->TicketDis_3->setText(TicketV3[temp].Description);
+    ui->TicketfName_5->setText(TicketV3[temp].fName);
+    ui->TicketlName_5->setText(TicketV3[temp].lName);
+    ui->TicketTime_5->setText(TicketV3[temp].Time_Stamp);
+    ui->TicketPhone_5->setText(TicketV3[temp].Phone);
+    ui->TicketEmail_5->setText(TicketV3[temp].Email);
+    ui->TicketResponse_6->setText(TicketV3[temp].response);
+    ui->TicketSupport_5->setText(TicketV3[temp].Support_Level);
+    ui->TicketResponse_7->setText(TicketV3[temp].Response_Process);
+    ui->TicketCategory_5->setText(TicketV3[temp].Category);
+    ui->TicketTags_5->setText(TicketV3[temp].Tags2);
+
+    qDebug() << temp;
+
+
+}
+
+
 

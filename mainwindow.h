@@ -74,6 +74,12 @@ private slots:
 
     void on_tabWidget_2_currentChanged(int index);
 
+    void on_pushButton_27_clicked();
+
+    void on_Closed_itemClicked(QListWidgetItem *item);
+
+
+
 private:
     Ui::MainWindow *ui;
 
