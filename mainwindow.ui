@@ -14,17 +14,17 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">font: 25 14px &quot;Barlow Light&quot;;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
+    <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="MAINWINDOW">
        <widget class="QPushButton" name="pushButton_2">
@@ -55,7 +55,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">font-size: 23px;
-</string>
+font: 25 20pt &quot;Barlow Light&quot;;</string>
         </property>
         <property name="text">
          <string>Login</string>
@@ -63,6 +63,9 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        </widget>
       </widget>
       <widget class="QWidget" name="TICKET_GENE">
+       <property name="styleSheet">
+        <string notr="true">font-size:13px</string>
+       </property>
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
@@ -97,18 +100,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <rect>
           <x>670</x>
           <y>500</y>
-          <width>551</width>
-          <height>160</height>
+          <width>581</width>
+          <height>151</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QLabel" name="label_13">
-           <property name="text">
-            <string>Here are some help full Frequenly asked questions that could help solve common issues.</string>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QPushButton" name="pushButton_11">
            <property name="text">
@@ -177,8 +173,8 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <rect>
           <x>50</x>
           <y>40</y>
-          <width>511</width>
-          <height>61</height>
+          <width>551</width>
+          <height>82</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -470,8 +466,8 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <rect>
           <x>670</x>
           <y>40</y>
-          <width>521</width>
-          <height>81</height>
+          <width>910</width>
+          <height>88</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -509,9 +505,9 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
         <property name="geometry">
          <rect>
           <x>670</x>
-          <y>140</y>
+          <y>130</y>
           <width>551</width>
-          <height>271</height>
+          <height>291</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -531,6 +527,19 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </item>
         </layout>
        </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>480</y>
+          <width>441</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Here are some help full Frequenly asked questions that could help solve common issues.</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="ADMIN_LOGIN">
        <widget class="QPushButton" name="pushButton_4">
@@ -549,8 +558,8 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QPushButton" name="pushButton_5">
         <property name="geometry">
          <rect>
-          <x>320</x>
-          <y>280</y>
+          <x>310</x>
+          <y>290</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -565,13 +574,13 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <bool>false</bool>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>302</x>
           <y>190</y>
           <width>208</width>
-          <height>48</height>
+          <height>94</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -579,7 +588,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           <widget class="QLabel" name="label_3">
            <property name="font">
             <font>
-             <pointsize>11</pointsize>
+             <family>Barlow Light</family>
+             <pointsize>-1</pointsize>
+             <weight>3</weight>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
@@ -594,7 +607,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           <widget class="QLabel" name="label_2">
            <property name="font">
             <font>
-             <pointsize>11</pointsize>
+             <family>Barlow Light</family>
+             <pointsize>-1</pointsize>
+             <weight>3</weight>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
@@ -636,7 +653,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_8">
          <attribute name="title">
@@ -653,8 +670,10 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>11</pointsize>
-            <weight>50</weight>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
             <bold>false</bold>
            </font>
           </property>
@@ -704,7 +723,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
@@ -722,7 +745,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>13</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -746,7 +773,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
@@ -770,7 +801,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
@@ -794,7 +829,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="frame">
@@ -821,7 +860,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
@@ -845,7 +888,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
@@ -869,7 +916,11 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <family>Barlow Light</family>
+            <pointsize>-1</pointsize>
+            <weight>3</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="placeholderText">
@@ -891,32 +942,6 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <attribute name="title">
           <string>Agents Details</string>
          </attribute>
-         <widget class="QPushButton" name="pushButton_19">
-          <property name="geometry">
-           <rect>
-            <x>410</x>
-            <y>460</y>
-            <width>98</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Edit Agents Details</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="pushButton_25">
-          <property name="geometry">
-           <rect>
-            <x>176</x>
-            <y>460</y>
-            <width>107</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>View Current Agents</string>
-          </property>
-         </widget>
          <widget class="QPlainTextEdit" name="plainTextEdit_2">
           <property name="geometry">
            <rect>
@@ -927,6 +952,32 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
            </rect>
           </property>
          </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>450</y>
+            <width>351</width>
+            <height>29</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QPushButton" name="pushButton_25">
+             <property name="text">
+              <string>View Current Agents</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_19">
+             <property name="text">
+              <string>Edit Agents Details</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -934,15 +985,19 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
-          <x>490</x>
-          <y>-20</y>
-          <width>401</width>
-          <height>71</height>
+          <x>590</x>
+          <y>20</y>
+          <width>111</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>30</pointsize>
+          <family>Barlow Light</family>
+          <pointsize>-1</pointsize>
+          <weight>3</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -971,7 +1026,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <enum>QTabWidget::Triangular</enum>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -1044,7 +1099,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_5">
          <attribute name="title">
@@ -1065,10 +1120,10 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>1030</x>
+          <x>820</x>
           <y>0</y>
-          <width>225</width>
-          <height>25</height>
+          <width>425</width>
+          <height>47</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1113,20 +1168,13 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QWidget" name="layoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>500</y>
-          <width>551</width>
-          <height>160</height>
+          <x>100</x>
+          <y>330</y>
+          <width>1019</width>
+          <height>294</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_10">
-         <item>
-          <widget class="QLabel" name="label_22">
-           <property name="text">
-            <string>Here are some help full Frequenly asked questions that could help solve common issues.</string>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QPushButton" name="pushButton_13">
            <property name="text">
@@ -1196,15 +1244,28 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </item>
         </layout>
        </widget>
+       <widget class="QLabel" name="label_22">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>270</y>
+          <width>541</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Here are some help full Frequenly asked questions that could help solve common issues.</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="TICKET_PROCESS">
        <widget class="QLabel" name="TicketDis">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>310</y>
+          <x>30</x>
+          <y>340</y>
           <width>591</width>
-          <height>311</height>
+          <height>261</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -1295,10 +1356,10 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>60</y>
-          <width>541</width>
-          <height>241</height>
+          <x>130</x>
+          <y>70</y>
+          <width>531</width>
+          <height>271</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1424,13 +1485,13 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>36</x>
-          <y>60</y>
-          <width>71</width>
-          <height>241</height>
+          <x>30</x>
+          <y>70</y>
+          <width>144</width>
+          <height>271</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -1553,13 +1614,13 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>630</y>
-          <width>191</width>
-          <height>16</height>
+          <y>610</y>
+          <width>231</width>
+          <height>39</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -1592,7 +1653,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="TICKET_PROCESS_2">
        <widget class="QLabel" name="label_36">
         <property name="geometry">
          <rect>
@@ -1611,8 +1672,8 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
          <rect>
           <x>50</x>
           <y>80</y>
-          <width>71</width>
-          <height>241</height>
+          <width>144</width>
+          <height>271</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1752,9 +1813,9 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>320</y>
-          <width>591</width>
-          <height>311</height>
+          <y>350</y>
+          <width>611</width>
+          <height>261</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -1779,10 +1840,10 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QWidget" name="layoutWidget_4">
         <property name="geometry">
          <rect>
-          <x>124</x>
+          <x>150</x>
           <y>80</y>
-          <width>541</width>
-          <height>241</height>
+          <width>511</width>
+          <height>271</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1925,9 +1986,9 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>630</y>
-          <width>191</width>
-          <height>16</height>
+          <y>610</y>
+          <width>231</width>
+          <height>31</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -1993,9 +2054,9 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
        <widget class="QPushButton" name="pushButton_27">
         <property name="geometry">
          <rect>
-          <x>1170</x>
+          <x>1154</x>
           <y>480</y>
-          <width>75</width>
+          <width>91</width>
           <height>23</height>
          </rect>
         </property>
@@ -2014,7 +2075,7 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -2039,7 +2100,6 @@ font: 25 20pt &quot;Barlow Light&quot;;</string>
   <tabstop>checkBox_2</tabstop>
   <tabstop>checkBox_3</tabstop>
   <tabstop>checkBox_4</tabstop>
-  <tabstop>textEdit</tabstop>
   <tabstop>pushButton_4</tabstop>
   <tabstop>lineEdit</tabstop>
   <tabstop>lineEdit_2</tabstop>

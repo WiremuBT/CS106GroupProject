@@ -97,6 +97,92 @@ void MainWindow::on_pushButton_5_clicked()
 
     }
 
+
+    agentFile.close();
+
+
+    //~~~~~~File code starts~~~~~~~~~~~~
+     QFile userFile("Tickets.txt");
+     userFile.open(QIODevice::ReadOnly | QIODevice::Text);
+     QTextStream in3(&userFile);
+     //~~~~~~File code ends~~~~~~~~~~~~
+    QVector<Ticket> TicketV;
+
+     while(!in3.atEnd())
+     {
+         QString line = in3.readLine();
+         QStringList data= line.split(",");
+            Ticket Temp;
+
+        Temp.fName = data.at(0);
+        Temp.lName = data.at(1);
+        Temp.Email = data.at(2);
+        Temp.Phone = data.at(3);
+        Temp.Description = data.at(4);
+        Temp.response = data.at(5);
+        Temp.Category = data.at(6);
+        Temp.Time_Stamp = data.at(7);
+        Temp.Support_Level = data.at(8);
+
+        TicketV.push_back(Temp);
+
+      }
+
+     for(int i = 0; i<TicketV.size(); i++)
+         {
+
+        if (TicketV[i].Support_Level == "Open") {
+        ui->listWidget->addItem(TicketV[i].fName);
+        }
+
+     }
+    userFile.close();
+
+    QFile userFile2("Processing.txt");
+    userFile2.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in2(&userFile2);
+    //~~~~~~File code ends~~~~~~~~~~~~
+   QVector<Ticket> TicketV2;
+   Ticket Temp2;
+    while(!in2.atEnd())
+    {
+        QString line2 = in2.readLine();
+        QStringList data2= line2.split(",");
+
+
+       Temp2.fName = data2.at(0);
+       Temp2.lName = data2.at(1);
+       Temp2.Email = data2.at(2);
+       Temp2.Phone = data2.at(3);
+       Temp2.Description = data2.at(4);
+       Temp2.response = data2.at(5);
+       Temp2.Category = data2.at(6);
+       Temp2.Time_Stamp = data2.at(7);
+       Temp2.Support_Level = data2.at(8);
+       Temp2.Tags2 = data2.at(9);
+       Temp2.Urgency = data2.at(10);
+       Temp2.Response_Process = data2.at(11);
+
+
+
+       qDebug() << Temp2.fName;
+       TicketV2.push_back(Temp2);
+
+     }
+
+       for(int i = 0; i<TicketV2.size(); i++) {
+
+       if (TicketV2[i].Support_Level == "Processing") {
+
+           ui->Processing->addItem(TicketV2[i].fName);
+
+       }
+
+        }
+
+
+
+
     ui->lineEdit->clear();
     ui->lineEdit_2->clear();
 
@@ -315,7 +401,8 @@ void MainWindow::on_pushButton_21_clicked()
 
 void MainWindow::on_pushButton_24_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+}
+  /*  ui->stackedWidget->setCurrentIndex(4);
 
     //~~~~~~File code starts~~~~~~~~~~~~
      QFile userFile("Tickets.txt");
@@ -412,18 +499,17 @@ void MainWindow::on_pushButton_24_clicked()
 
 
 
-        /* (TicketV[i].Support_Level == "Closed") {
+         (TicketV[i].Support_Level == "Closed") {
 
             ui->Closed->addItem(TicketV[i].fName);
         }
-*/
 
 
 
 
 
 
-}
+} */
 
 
 
