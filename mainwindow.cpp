@@ -371,13 +371,30 @@ void MainWindow::on_pushButton_17_clicked()
     ui->comboBox_2->currentText();
 
 
-     ui->lineEdit_userid->clear();
-     ui->lineEdit_fname->clear();
-     ui->lineEdit_lname->clear();
-     ui->lineEdit_uname->clear();
-     ui->lineEdit_password->clear();
-     ui->lineEdit_email->clear();
-     ui->lineEdit_phnum->clear();
+
+
+     QString StringConcante;
+
+     StringConcante = ui->lineEdit_userid->text() + ", " + ui->lineEdit_fname->text() + ", " + ui->lineEdit_lname->text() + ", " + ui->lineEdit_uname->text() + ", " + ui->lineEdit_password->text() + ", " + ui->lineEdit_email->text() + ", " + ui->lineEdit_phnum->text() + ", " + ui->comboBox_2->currentText();
+
+    ui->plainTextEdit->setPlainText(StringConcante);
+
+
+
+
+
+
+             ui->lineEdit_userid->clear();
+             ui->lineEdit_fname->clear();
+             ui->lineEdit_lname->clear();
+             ui->lineEdit_uname->clear();
+             ui->lineEdit_password->clear();
+             ui->lineEdit_email->clear();
+             ui->lineEdit_phnum->clear();
+
+
+
+
 
 
     //  File code starts
@@ -404,6 +421,8 @@ void MainWindow::on_pushButton_21_clicked()
 
 void MainWindow::on_pushButton_24_clicked()
 {
+
+
 
 }
   /*  ui->stackedWidget->setCurrentIndex(4);
@@ -909,5 +928,11 @@ void MainWindow::on_Processing_itemClicked(QListWidgetItem *item)
 void MainWindow::on_pushButton_26_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_tabWidget_2_currentChanged(int index)
+{
+
 }
 

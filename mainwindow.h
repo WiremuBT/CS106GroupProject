@@ -72,6 +72,8 @@ private slots:
 
     void on_pushButton_26_clicked();
 
+    void on_tabWidget_2_currentChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 
