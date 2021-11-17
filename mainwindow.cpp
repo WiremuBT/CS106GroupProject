@@ -214,7 +214,7 @@ void MainWindow::on_pushButton_17_clicked()
     Agent.password = ui->lineEdit_password->text();
     Agent.email = ui->lineEdit_email->text();
     Agent.phnum = ui->lineEdit_phnum->text();
-    ui->comboBox_2->currentText();
+
 
      ui->lineEdit_userid->clear();
      ui->lineEdit_fname->clear();
@@ -232,7 +232,7 @@ void MainWindow::on_pushButton_17_clicked()
     //  File code ends
 
       out << Agent.userid << (',') << Agent.fname << (',') << Agent.lname << (',') << Agent.uname
-        << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',') << ui->comboBox_2->currentText() << Qt::endl;
+        << (',') << Agent.password << (',') << Agent.email << (',') << Agent.phnum << (',')  << Qt::endl;
     agentFile.close();
 
       agentFile.open(QFile::ReadOnly | QFile::Text);
@@ -279,7 +279,7 @@ void MainWindow::on_pushButton_20_clicked()
         if(Agent.uname==data.at(3) && Agent.password==data.at(4))
         {
             QMessageBox::information(this, "Agent Login", "Login Successful!");
-            ui->stackedWidget->setCurrentIndex(4);
+            ui->stackedWidget->setCurrentIndex(5);
             agentFile.close();
         }
         else
@@ -294,9 +294,38 @@ void MainWindow::on_pushButton_20_clicked()
 
 void MainWindow::on_pushButton_21_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(3);
+     ui->stackedWidget->setCurrentIndex(4);
 }
 
+
+
+/* void MainWindow::on_pushButton_19_clicked()
+{
+    QFile agentFile("agents.txt");
+    if(!agentFile.open(QFile::ReadOnly | QFile::Text))
+    {
+        QMessageBox::warning(this, "File", "File is not open");
+    }
+    QTextStream in(&agentFile);
+    QString rdata= in.readAll();
+    ui->plainTextEdit_2->setPlainText(rdata);
+    agentFile.close();
+}
+*/
+
+/*void MainWindow::on_pushButton_13_clicked()
+{
+    QFile agentFile("agents.txt");
+    if(!agentFile.open(QFile::WriteOnly|QFile::Text))
+    {
+        QMessageBox::warning(this, "File", "File is not open");
+    }
+    QTextStream out(&agentFile);
+    QString data = ui->plainTextEdit_2->toPlainText();
+    out << data;
+    agentFile.flush();
+    agentFile.close();
+ } */
 
 
 void MainWindow::on_pushButton_24_clicked()
@@ -387,15 +416,32 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         Temp.Time_Stamp = data.at(7);
         Temp.Support_Level = data.at(8);
 
+
         TicketV.push_back(Temp);
 
       }
 
-    ui->TicketDis->setPlainText(TicketV[temp].Description);
+    ui->TicketDis->setText(TicketV[temp].Description);
     ui->TicketfName->setText(TicketV[temp].fName);
     ui->TicketlName->setText(TicketV[temp].lName);
     ui->TicketTime->setText(TicketV[temp].Time_Stamp);
-    ui->TicketUrgency->setText(TicketV[temp].Description);
+    ui->TicketPhone->setText(TicketV[temp].Phone);
+    ui->TicketEmail->setText(TicketV[temp].Email);
+
+    if (TicketV[temp].Category == "B") {
+
+        ui->TicketCategory->setText("Bug Report");
+
+    } else if (TicketV[temp].Category == "P") {
+
+        ui->TicketCategory->setText("Performance Report");
+} else if (TicketV[temp].Category == "G") {
+
+        ui->TicketCategory->setText("General Issue");
+       } else if (TicketV[temp].Category == "S") {
+        ui->TicketCategory->setText("Service Report");
+    }
+
 
 }
 

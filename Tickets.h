@@ -15,8 +15,9 @@ class Ticket {
    char Impact, Priority;
    int Urgency;
    QString Time_Stamp;
-
+   QString Agent_ResponseTag;
    QString Description;
+   QString Response_Process;
    QString Support_Level;
 
    void CreateTicket() {
