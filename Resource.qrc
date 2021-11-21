@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/Resource">
         <file>wallhaven-dp6jyj_1920x1080.png</file>
+        <file>noun_help_38716.png</file>
+        <file>noun_help2.png</file>
+        <file>noun_help desk_3719145.png</file>
+        <file>noun_Pie Chart_1957619.png</file>
     </qresource>
 </RCC>

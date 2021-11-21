@@ -69,8 +69,11 @@ void MainWindow::on_pushButton_5_clicked()
 
     ui->listWidget->clear();
     ui->Processing->clear();
+    ui->Closed->clear();
+    ui->listWidget_2->clear();
 
-    Agent Agent;
+
+    Agent Agent, Agent2;
     Agent.uname = ui->lineEdit->text();
     Agent.password = ui->lineEdit_2->text();
 
@@ -95,10 +98,39 @@ void MainWindow::on_pushButton_5_clicked()
         {
             QMessageBox::information(this,"Login","Successfull");
             ui->stackedWidget->setCurrentIndex(4);
+            Agent2.userid = data.at(0);
+            Agent2.fname = data.at(1);
+            Agent2.lname = data.at(2);
+            Agent2.uname = data.at(3);
+            Agent2.password = data.at(4);
+            Agent2.email = data.at(5);
+            Agent2.phnum = data.at(6);
+            Agent2.category = data.at(7);
         }
 
 
     }
+
+
+    QString AgentName = Agent2.fname + (" ") + Agent2.lname;
+
+    ui->Agent_Category->setText(Agent2.category);
+    ui->Agent_Name->setText(AgentName);
+    ui->Agent_Name_2->setText(Agent2.fname);
+    ui->Agent_Last->setText(Agent2.lname);
+    ui->Agent_Email->setText(Agent2.email);
+    ui->Agent_Phone->setText(Agent2.phnum);
+    ui->Agent_id->setText(Agent2.userid);
+    ui->Agent_categor_2->setText(Agent2.category);
+
+
+    /*
+    Agent2.userid
+    Agent2.uname
+    Agent2.password
+    Agent2.email
+    Agent2.phnum
+*/
 
 
     agentFile.close();
@@ -220,6 +252,8 @@ void MainWindow::on_pushButton_5_clicked()
           if (TicketV3[i].Support_Level == "Closed") {
 
               ui->Closed->addItem(TicketV3[i].fName);
+              ui->listWidget_2->addItem(TicketV3[i].fName);
+
 
           }}
 
@@ -246,7 +280,15 @@ void MainWindow::on_pushButton_12_clicked()
 void MainWindow::on_pushButton_6_clicked()
     {
 
-        QDateTime date = QDateTime::currentDateTime();
+
+
+
+
+    if(ui->checkBox_5->isChecked()) {
+
+
+
+    QDateTime date = QDateTime::currentDateTime();
         QString formatTime = date.toString("dd.MM.yyyy hh:mm:ss");
 
 
@@ -388,6 +430,11 @@ void MainWindow::on_pushButton_6_clicked()
         ui->label_21->setText("Ticket has been successfully Generated. A confirmation email has been sent too..");
         ui->label_23->setText(TestTicket.Email);
 
+    } else {
+
+        QMessageBox::information(this, "Alert!", "Please agree to the privacy policy");
+
+    }
 
 
     }
@@ -418,14 +465,11 @@ void MainWindow::on_pushButton_17_clicked()
 
 
      QString StringConcante;
-
-     StringConcante = ui->lineEdit_userid->text() + ", " + ui->lineEdit_fname->text() + ", " + ui->lineEdit_lname->text() + ", " + ui->lineEdit_uname->text() + ", " + ui->lineEdit_password->text() + ", " + ui->lineEdit_email->text() + ", " + ui->lineEdit_phnum->text() + ", " + ui->comboBox_2->currentText();
+     StringConcante = "\t\t New Agent Details\n\n\nUser ID: " + ui->lineEdit_userid->text() + "\n\n" + "First Name: " + ui->lineEdit_fname->text() + "\n\n" + "Last Name: " + ui->lineEdit_lname->text() + "\n\n" + "Username: " + ui->lineEdit_uname->text() + "\n\n" +
+     "Password: " + ui->lineEdit_password->text() + "\n\n" + "Email: " + ui->lineEdit_email->text() + "\n\n" + "Phone: " + ui->lineEdit_phnum->text() + "\n\n" + "Category: " + ui->comboBox_2->currentText()
+     + "\n\nNew Agent can now log in with provided username and password to view and administer to delegated tickets.";
 
     ui->plainTextEdit->setPlainText(StringConcante);
-
-
-
-
 
 
              ui->lineEdit_userid->clear();
@@ -435,10 +479,6 @@ void MainWindow::on_pushButton_17_clicked()
              ui->lineEdit_password->clear();
              ui->lineEdit_email->clear();
              ui->lineEdit_phnum->clear();
-
-
-
-
 
 
     //  File code starts
@@ -469,6 +509,10 @@ void MainWindow::on_pushButton_24_clicked()
 
 
 }
+
+
+
+
   /*  ui->stackedWidget->setCurrentIndex(4);
 
     //~~~~~~File code starts~~~~~~~~~~~~
@@ -1239,4 +1283,74 @@ void MainWindow::on_Closed_itemClicked(QListWidgetItem *item)
 }
 
 
+
+
+void MainWindow::on_pushButton_28_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_listWidget_2_itemClicked(QListWidgetItem *item)
+{
+    ui->stackedWidget->setCurrentIndex(8);
+
+    int temp = ui->listWidget_2->row(item);
+    qDebug() << ui->listWidget_2->row(item);
+
+   ui->stackedWidget->setCurrentIndex(9);
+
+
+    QFile userFile3("Closed.txt");
+    userFile3.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in4(&userFile3);
+    //~~~~~~File code ends~~~~~~~~~~~~
+   QVector<Ticket> TicketV3;
+   Ticket Temp4;
+    while(!in4.atEnd())
+    {
+        QString line3 = in4.readLine();
+        QStringList data3= line3.split(",");
+
+
+       Temp4.fName = data3.at(0);
+       Temp4.lName = data3.at(1);
+       Temp4.Email = data3.at(2);
+       Temp4.Phone = data3.at(3);
+       Temp4.Description = data3.at(4);
+       Temp4.response = data3.at(5);
+       Temp4.Category = data3.at(6);
+       Temp4.Time_Stamp = data3.at(7);
+       Temp4.Support_Level = data3.at(8);
+       Temp4.Tags2 = data3.at(9);
+       Temp4.Urgency = data3.at(10);
+       Temp4.Response_Process = data3.at(11);
+
+       qDebug() << Temp4.fName;
+       TicketV3.push_back(Temp4);
+
+     }
+
+
+
+    ui->TicketDis_4->setText(TicketV3[temp].Description);
+    ui->TicketfName_6->setText(TicketV3[temp].fName);
+    ui->TicketlName_6->setText(TicketV3[temp].lName);
+    ui->TicketTime_6->setText(TicketV3[temp].Time_Stamp);
+    ui->TicketPhone_6->setText(TicketV3[temp].Phone);
+    ui->TicketEmail_6->setText(TicketV3[temp].Email);
+    ui->TicketResponse_8->setText(TicketV3[temp].response);
+    ui->TicketSupport_6->setText(TicketV3[temp].Support_Level);
+    ui->TicketResponse_9->setText(TicketV3[temp].Response_Process);
+    ui->TicketCategory_6->setText(TicketV3[temp].Category);
+    ui->TicketTags_6->setText(TicketV3[temp].Tags2);
+
+    qDebug() << temp;
+}
+
+
+void MainWindow::on_pushButton_30_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
 

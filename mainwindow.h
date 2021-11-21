@@ -80,6 +80,12 @@ private slots:
 
 
 
+    void on_pushButton_28_clicked();
+
+    void on_listWidget_2_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_30_clicked();
+
 private:
     Ui::MainWindow *ui;
 
