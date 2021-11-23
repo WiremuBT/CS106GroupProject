@@ -29,7 +29,7 @@ color: #CACECE</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="MAINWINDOW">
        <widget class="QPushButton" name="pushButton_2">
@@ -1369,7 +1369,7 @@ color: rgb(149, 156, 157);
          <attribute name="title">
           <string>Profile</string>
          </attribute>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>30</x>

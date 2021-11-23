@@ -79,7 +79,7 @@ void MainWindow::on_pushButton_5_clicked()
 
     if(Agent.uname=="admin" && Agent.password=="admin")
     {
-        QMessageBox::information(this,"Login","Successfull");
+        QMessageBox::information(this,"Login","Successful");
         ui->stackedWidget->setCurrentIndex(3);
     }
 
@@ -280,7 +280,9 @@ void MainWindow::on_pushButton_12_clicked()
 void MainWindow::on_pushButton_6_clicked()
     {
 
+    QString str = ui->lineEdit_4->text();
 
+    if ((str.contains("@", Qt::CaseInsensitive))) {
 
 
 
@@ -435,6 +437,15 @@ void MainWindow::on_pushButton_6_clicked()
         QMessageBox::information(this, "Alert!", "Please agree to the privacy policy");
 
     }
+
+
+} else {
+
+
+    QMessageBox::information(this, "Alert!", "Please Enter a vaild email!");
+
+
+}
 
 
     }
